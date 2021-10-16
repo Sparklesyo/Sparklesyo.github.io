@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="cn"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="超简短的独立游戏开发教学"><meta name="keywords" content="游戏开发,Bilibili"><meta name="author" content="斯帕蔻"><meta name="copyright" content="斯帕蔻"><title>超简短的独立游戏开发教学 | Sparkle</title><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Sparklesyo/Collections/img/FN_icon.png"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="cn"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="超简短的独立游戏开发教学"><meta name="keywords" content="Bilibili,游戏开发"><meta name="author" content="斯帕蔻"><meta name="copyright" content="斯帕蔻"><title>超简短的独立游戏开发教学 | Sparkle</title><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Sparklesyo/Collections/img/FN_icon.png"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: undefined,
@@ -20,26 +20,26 @@
 <p>协程的写法非常简单：</p>
 <ul>
 <li>首先定义一个用作协程的方法，返回值为 <code>IEnumerator</code>，关于这个类型可以作为固定写法记录，只要是协程方法返回值都是 <code>IEnumerator</code>，感兴趣可以深入了解 C# 的接口和迭代器的概念。</li>
-<li>根据需要定义方法名和参数列表。如 <code>IEnumerator XplusY(int x, int y)</code>在生命周期函数中，使用 Startcorountine 方法即可开启协程。括号中填入声明的协程方法，协程就会执行。<pre class="line-numbers language-none"><code class="language-none">void Start()&#123;
+<li>根据需要定义方法名和参数列表。如 <code>IEnumerator XplusY(int x, int y)</code>在生命周期函数中，使用 Startcorountine 方法即可开启协程。括号中填入声明的协程方法，协程就会执行。<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">void Start()&#123;
     StartCorountine(XplusY(1,1))
 &#125;</code></pre>
 通常放在协程里执行的代码都是一些需要消耗时间的操作，比如资源加载、网络请求或者单纯等待一段时间。所以方法内部对于这些需要等待的操作，前面需要加上 <code>yield return</code> 关键字来延迟执行。</li>
-<li>等待指定时间<pre class="line-numbers language-none"><code class="language-none">IEnumerator XplusY(int x, int y)&#123;
+<li>等待指定时间<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">IEnumerator XplusY(int x, int y)&#123;
     yield return new WaitForSeconds(10);
     print(&quot;两数十秒后相加为&quot; + (x+y));
 &#125;</code></pre></li>
-<li>等待数据加载完成<pre class="line-numbers language-none"><code class="language-none">IEnumerator LoadResource()&#123;
+<li>等待数据加载完成<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">IEnumerator LoadResource()&#123;
     RescourceRequest r &#x3D; Resources.LoadAsync(&quot;方圆 500 米山脉&quot;);
     yield return r;
 &#125;</code></pre></li>
-<li>等待网络请求返回结果等等<pre class="line-numbers language-none"><code class="language-none">IEnumerator AnnoyBaidu()&#123;
+<li>等待网络请求返回结果等等<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">IEnumerator AnnoyBaidu()&#123;
     UnityWebRequest r &#x3D; UnityWebRequest.Get(&quot;www.baidu.com&quot;);
     yield return r.SendWebRequest();
 &#125;</code></pre>
 在执行到 <code>yield return</code> 时，协程的内容会被挂起，程序会先去处理别的逻辑。一旦 <code>yield return</code> 后的等待完成，如资源加载完毕、请求返回了结果、计时完毕，就会继续执行 <code>yield return</code> 这行之后的代码，直到执行完方法里的每一行代码，这个协程就会完成并退出。</li>
 </ul>
 <p><code>yield return</code> 加等待操作这样的代码在一个协程内是可以写很多行的，甚至可以写一个循环，并在每次循环的时候等候一帧来模拟 <code>Update</code> 方法的效果。</p>
-<pre class="line-numbers language-none"><code class="language-none">IEnumerator YourCoroutine()&#123;
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">IEnumerator YourCoroutine()&#123;
     while(true)&#123;
         &#x2F;&#x2F; 返回 null 则等待一帧
         yield return null;
@@ -47,24 +47,24 @@
 &#125;</code></pre>
 <p>相机平滑移动工具脚本正是利用了这种思路。现在已经知道了如何让代码并发，但仍有一个问题：当协程里的代码和主线程代码同时执行时，主线程代码需要能知道协程中的代码是否执行完毕并将运行结果带回到主线程。</p>
 <p>为了实现这一需求，需要引入一个新的概念——**回调 (Callback)**，需要在协程执行完之后或者在执行过程中向主线程反馈情况，C# 提供了一个叫做委托的功能，类似于 C++ 中的函数指针。通过声明、定义和发布委托的形式可以实现消息通知功能。</p>
-<pre class="line-numbers language-none"><code class="language-none">delegate void Call();
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">delegate void Call();
 Call phoneCall;
 phoneCall.Invoke();</code></pre>
 <p>C# 封装好了一个数据类型 <code>Action</code>，引入 <code>System</code> 命名空间，在协程的参数列表中定义一个 <code>Action</code> 类型的参数，如 <code>callback</code>，然后在协程的代码中根据需要在合适的地方使用 <code>Invoke</code> 方法发布消息。</p>
-<pre class="line-numbers language-none"><code class="language-none">Using System;
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">Using System;
 IEnumerator Coro(Action callback)&#123;
     yield return ...;
     callback.Invoke();
 &#125;</code></pre>
 <p>如果发布消息还需要传递数据出去，在定义时在 <code>Action</code> 后面加上尖括号并填写数据类型，在 <code>Invoke</code> 方法的参数括号里带上需要传递出去的数据即可。</p>
-<pre class="line-numbers language-none"><code class="language-none">Using System;
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">Using System;
 IEnumerator Coro(Action&lt;string&gt; callback)&#123;
     yield return ...;
     callback.Invoke(&quot;It&#39;s over&quot;);
 &#125;</code></pre>
 
 <p>开启协程时，在参数这里可以直接填入一个方法，当 <code>callback</code> 被发布时就会调用这个方法，实现对协程内运行情况的监听。</p>
-<pre class="line-numbers language-none"><code class="language-none">void Start()&#123;
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">void Start()&#123;
     StartCorountine(Coro(Handler));
 &#125;
 
@@ -73,23 +73,23 @@ void Handler(string message)&#123;
 &#125;</code></pre>
 <p><code>Action</code> 的使用场景很广泛，可以非常方便地发送各种事件</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>如果有需要同时执行的代码，定义一个返回值类型为 <code>IEnumerator</code> 的协程方法</p>
-<pre class="line-numbers language-none"><code class="language-none">IEnumerator YourCoroutine()</code></pre>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">IEnumerator YourCoroutine()</code></pre>
 <p>在其中写上需要并发的代码。<br>对于需要等待的操作，前面使用 <code>yield return</code> 延迟返回。</p>
-<pre class="line-numbers language-none"><code class="language-none">IEnumerator YourCoroutine()&#123;
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">IEnumerator YourCoroutine()&#123;
     yield return ...;
 &#125;</code></pre>
 <p>使用 <code>StartCoroutine</code> 方法开启协程，调用你的协程方法。</p>
-<pre class="line-numbers language-none"><code class="language-none">void Start()&#123;
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">void Start()&#123;
     StartCorountine(YourCoroutine());
 &#125;</code></pre>
 <p>如果主线程需要对协程运行情况进行监听，在协程方法的参数列表中加入 <code>Action</code> 变量，在合适的地方使用 <code>Invoke</code> 方法发布事件。</p>
-<pre class="line-numbers language-none"><code class="language-none">Using System;
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">Using System;
 IEnumerator YourCoroutine(Action callback)&#123;
     yield return ...;
     callback.Invoke();
 &#125;</code></pre>
 <p>然后在 <code>StartCoroutine</code> 后面的方法调用里填入一个方法作为参数来监听这个事件，实现对协程方法运行情况的监控。</p>
-<pre class="line-numbers language-none"><code class="language-none">void Start()&#123;
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">void Start()&#123;
     StartCorountine(YourCoroutine(Handler));
 &#125;
 
@@ -98,10 +98,10 @@ void Handler(string message)&#123;
 &#125;</code></pre>
 
 <p>尝试实现代码延迟执行的工具脚本：</p>
-<pre class="line-numbers language-none"><code class="language-none">Delayer.Instance.DelaySeconds(10, ()&#x3D;&gt;print(&quot;等了10秒&quot;));</code></pre>
+<pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">Delayer.Instance.DelaySeconds(10, ()&#x3D;&gt;print(&quot;等了10秒&quot;));</code></pre>
 
 <p>下一节以事件收发为基础，针对鼠标的交互事件制作工具脚本。</p>
-</div></article><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/">游戏开发</a><a class="post-meta__tags" href="/tags/Bilibili/">Bilibili</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/post/321a27c2/"><i class="fa fa-chevron-left">  </i><span>不正经风格讲解编程知识</span></a></div><div class="next-post pull-right"><a href="/post/9415f108/"><span>女同士とかありえないでしょと言い張る女の子を、百日間で徹底的に落とす百合のお話 01</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/Sparklesyo/Collections/img/55647411_p0.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2021 By 斯帕蔻</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+</div></article><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Bilibili/">Bilibili</a><a class="post-meta__tags" href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/">游戏开发</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/post/321a27c2/"><i class="fa fa-chevron-left">  </i><span>不正经风格讲解编程知识</span></a></div><div class="next-post pull-right"><a href="/post/9415f108/"><span>女同士とかありえないでしょと言い張る女の子を、百日間で徹底的に落とす百合のお話 01</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/Sparklesyo/Collections/img/55647411_p0.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2021 By 斯帕蔻</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
   $('#nav').addClass('is-mobile')
   $('footer').addClass('is-mobile')
   $('#top-container').addClass('is-mobile')
