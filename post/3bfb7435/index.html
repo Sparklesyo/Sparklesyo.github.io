@@ -28,29 +28,22 @@
 
 <p>通常放在协程里执行的代码都是一些需要消耗时间的操作，比如资源加载、网络请求或者单纯等待一段时间。所以方法内部对于这些需要等待的操作，前面需要加上 <code>yield return</code> 关键字来延迟执行。</p>
 <ul>
-<li>等待指定时间</li>
-</ul>
+<li><p>等待指定时间</p>
 <pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">IEnumerator XplusY(int x, int y)&#123;
     yield return new WaitForSeconds(10);
     print(&quot;两数十秒后相加为&quot; + (x+y));
-&#125;</code></pre>
-
-<ul>
-<li>等待数据加载完成</li>
-</ul>
+&#125;</code></pre></li>
+<li><p>等待数据加载完成</p>
 <pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">IEnumerator LoadResource()&#123;
     RescourceRequest r &#x3D; Resources.LoadAsync(&quot;方圆 500 米山脉&quot;);
     yield return r;
-&#125;</code></pre>
-
-<ul>
-<li>等待网络请求返回结果等等</li>
-</ul>
+&#125;</code></pre></li>
+<li><p>等待网络请求返回结果等等</p>
 <pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">IEnumerator AnnoyBaidu()&#123;
     UnityWebRequest r &#x3D; UnityWebRequest.Get(&quot;www.baidu.com&quot;);
     yield return r.SendWebRequest();
-&#125;</code></pre>
-
+&#125;</code></pre></li>
+</ul>
 <p>在执行到 <code>yield return</code> 时，协程的内容会被挂起，程序会先去处理别的逻辑。一旦 <code>yield return</code> 后的等待完成，如资源加载完毕、请求返回了结果、计时完毕，就会继续执行 <code>yield return</code> 这行之后的代码，直到执行完方法里的每一行代码，这个协程就会完成并退出。</p>
 <p><code>yield return</code> 加等待操作这样的代码在一个协程内是可以写很多行的，甚至可以写一个循环，并在每次循环的时候等候一帧来模拟 <code>Update</code> 方法的效果。</p>
 <pre class="line-numbers language-csharp" data-language="csharp"><code class="language-csharp">IEnumerator YourCoroutine()&#123;
