@@ -1,3 +1,12 @@
+.new-meta-box,
+.article-title,
+.prev-next,
+.meta-v3,
+.md .footer .header,
+.widget header,
+details summary {
+  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+}
 :root {
   --block-hover: #ededed;
   --text-p1: #222;
@@ -598,6 +607,7 @@ article#tag .all-tags ul li span:before {
 }
 .article pre >code:not([class]) {
   background: transparent;
+  float: left;
 }
 .article div>pre {
   border-radius: 4px;
@@ -610,7 +620,7 @@ article#tag .all-tags ul li span:before {
   color: rgba(68,68,68,0.9);
 }
 .article code {
-  font-family: UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+  font-family: Menlo, UbuntuMono, Monaco, monospace, courier, sans-serif;
 }
 .article code:not([class]) {
   word-break: break-all;
@@ -1298,7 +1308,7 @@ svg.loading {
   }
 }
 #safearea {
-  margin: 16px 16px 0;
+  margin: 0;
 }
 #l_body {
   position: relative;
@@ -1386,7 +1396,7 @@ svg.loading {
   }
 }
 #l_main {
-  width: calc(100% - 1 * 240px);
+  width: 75%;
   padding-right: 16px;
   float: left;
 }
@@ -1811,6 +1821,7 @@ svg.loading {
   width: 100%;
   max-width: 1080px;
   margin: 0 auto;
+  padding: 1rem 1rem;
   flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -khtml-flex-wrap: wrap;
@@ -2558,7 +2569,7 @@ img.lazyload:not(.placeholder).loaded {
   z-index: 1;
 }
 #l_side {
-  width: 240px;
+  width: 25%;
   float: right;
   position: relative;
   display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
@@ -2656,6 +2667,12 @@ img.lazyload:not(.placeholder).loaded {
   font-weight: bold;
   font-size: 0.875rem;
   padding-bottom: 0;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
 }
 .widget header,
 .widget header a {
@@ -2664,8 +2681,14 @@ img.lazyload:not(.placeholder).loaded {
 .widget header >a:hover {
   color: #ff5722;
 }
-.widget header span.name {
-  margin-left: 8px;
+.widget header span.icon {
+  width: 20px;
+  margin-right: 2px;
+}
+.widget header span.icon i {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: inline-block;
 }
 .widget >.content {
   padding: 8px 0;
@@ -4365,8 +4388,8 @@ div.fancybox .gallery {
 }
 div.fancybox .image-caption {
   font-size: 0.8125rem;
-  padding-top: 0.5em;
-  padding-bottom: 1em;
+  line-height: 0.8125rem;
+  padding: 0.5rem 0;
   color: var(--color-meta);
 }
 div.fancybox .image-caption:empty {
@@ -5753,6 +5776,31 @@ div.timenode:hover .meta:after {
   -o-transform: scale(1);
   -ms-transform: scale(1);
 }
+.tiy-container {
+  position: relative;
+  overflow: hidden;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: inline-block;
+  border: 1px solid #eee;
+  margin: 1rem 0;
+  width: 100%;
+  height: 500px;
+}
+.tiy-container iframe {
+  position: relative;
+  top: 0;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: inline-block;
+  background-color: #fff;
+}
+@media screen and (max-width: 500px) {
+  .tiy-container {
+    height: 700px;
+    width: 100%;
+  }
+}
 .article mjx-container {
   font-family: Menlo, UbuntuMono, Monaco, monospace, courier, sans-serif;
   padding: 16px 8px;
@@ -6642,6 +6690,7 @@ ul.list-v.rightmenu {
   display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
   display: block;
   max-width: 240px;
+  min-width: 170px;
   overflow: hidden;
 }
 ul.list-v.rightmenu.left {
@@ -6750,11 +6799,12 @@ ul.list-v.rightmenu li.music.name {
   align-items: center;
 }
 ul.list-v.rightmenu li.music.name p.nav.music-title {
-  color: #696969;
   font-size: 0.875rem;
+  font-weight: 600;
   max-width: 128px;
   margin: 0 20px;
   overflow: hidden;
+  font-family: 'SentyGoldenBell';
 }
 ul.list-v.rightmenu li.music.name p.nav.music-title:hover {
   background: none;

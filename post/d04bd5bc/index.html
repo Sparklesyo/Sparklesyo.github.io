@@ -21,7 +21,7 @@
   <meta content="Sparkle" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1634487127778" as="style">
+  <link rel="preload" href="/css/style.css?time=1634487303918" as="style">
   
   <!-- 页面元数据 -->
   <title>操作系统 - Sparkle</title>
@@ -61,6 +61,15 @@ article + article,
   content-visibility: auto;
   contain-intrinsic-size: 10px 500px;
 }
+.new-meta-box,
+.article-title,
+.prev-next,
+.meta-v3,
+.md .footer .header,
+.widget header,
+details summary {
+  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+}
 :root {
   --color-site-body: #f4f4f4;
   --color-site-bg: #f4f4f4;
@@ -83,6 +92,8 @@ article + article,
   --color-meta: #888;
   --color-read-bkg: #e0d8c8;
   --color-read-post: #f8f1e2;
+  --color-white-png: #fff;
+  --color-img-error: #f5f5f5;
 }
 * {
   box-sizing: border-box;
@@ -368,7 +379,7 @@ button {
 }
 .cover-wrapper#half {
   max-height: 640px;
-  min-height: 400px;
+  min-height: 460px;
   height: calc(36vh - 64px + 200px);
 }
 .cover-wrapper #scroll-down {
@@ -509,11 +520,11 @@ button {
 .cover-wrapper .cover-body .title {
   font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
   font-size: 3.125rem;
-  line-height: 1.2;
   text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  text-align: center;
 }
 .cover-wrapper .cover-body .subtitle {
-  font-size: 20px;
+  font-size: 16px;
 }
 .cover-wrapper .cover-body .logo {
   max-height: 120px;
@@ -524,7 +535,7 @@ button {
     font-size: 3rem;
   }
   .cover-wrapper .cover-body .subtitle {
-    font-size: 1.05rem;
+    font-size: 0.875rem;
   }
   .cover-wrapper .cover-body .logo {
     max-height: 150px;
@@ -670,7 +681,7 @@ button {
   max-width: 100%;
 }
 .cover-wrapper.search .bottom .menu {
-  margin-top: 16px;
+  margin-top: 8px;
 }
 .cover-wrapper.search .bottom .menu .list-h a {
   white-space: nowrap;
@@ -1092,14 +1103,6 @@ button {
     width: calc(100% - 120px);
   }
 }
-ul.m-pc >li>a {
-  color: inherit;
-  border-bottom: 2px solid transparent;
-}
-ul.m-pc >li>a:active,
-ul.m-pc >li>a.active {
-  border-bottom: 2px solid #44d7b6;
-}
 ul.m-pc li:hover >ul.list-v,
 ul.list-v li:hover >ul.list-v {
   display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
@@ -1128,9 +1131,11 @@ ul.nav-list-h>li {
   border-radius: 4px;
   -webkit-border-radius: 4px;
 }
-ul.nav-list-h>li >a {
+ul.nav-list-h>li > a {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+ul.nav-list-h>li > a span {
   font-weight: 600;
 }
 ul.list-v {
@@ -1193,7 +1198,6 @@ ul.list-v >li>a {
   display: block;
   color: var(--color-list);
   font-size: 0.875rem;
-  font-weight: bold;
   line-height: 36px;
   padding: 0 20px 0 16px;
   text-overflow: ellipsis;
@@ -1222,9 +1226,30 @@ ul.list-v >li>a:hover {
   display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
   display: block;
   padding: 0 8px;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
 }
-.l_header .menu >ul>li>a >i {
-  margin-right: 4px;
+.l_header .menu >ul>li>a .icon {
+  width: 16px;
+  margin-right: 6px;
+}
+.l_header .menu >ul>li>a .icon i {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: inline-block;
+}
+.l_header .menu >ul>li>ul .icon {
+  width: 16px;
+  margin-right: 2px;
+}
+.l_header .menu >ul>li>ul .icon i {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: inline-block;
 }
 .l_header ul.nav-list-h>li {
   color: var(--color-list);
@@ -1235,8 +1260,8 @@ ul.list-v >li>a:hover {
   overflow: hidden;
   color: inherit;
 }
-.l_header ul.nav-list-h>li >a:active,
-.l_header ul.nav-list-h>li >a.active {
+.l_header ul.nav-list-h>li >a:active span,
+.l_header ul.nav-list-h>li >a.active span {
   color: #44d7b6;
 }
 .l_header ul.nav-list-h>li:hover>a {
@@ -1512,6 +1537,7 @@ ul.list-v >li>a:hover {
     display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
     display: flex;
     margin-right: 8px;
+    height: 64px;
   }
   .l_header .menu {
     display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
@@ -1541,10 +1567,85 @@ ul.list-v >li>a:hover {
     padding: 0px;
   }
 }
+@media screen and (max-width: 2048px) {
+  .l_header {
+    left: 0 !important;
+    border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    max-width: 100% !important;
+  }
+}
+article p {
+  line-height: 2 !important;
+}
+@media screen and (max-width: 500px) {
+  #safearea {
+    margin: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+  #safearea .body-wrapper {
+    padding: 0;
+  }
+  #safearea #l_main article#comments,
+  #safearea #l_main article#friends,
+  #safearea #l_main article#post,
+  #safearea #l_main article#page,
+  #safearea #l_main article#arc {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+  }
+  #safearea #l_main article#cat,
+  #safearea #l_main article#tag {
+    margin: 0;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+  }
+  #safearea #l_main .post-wrapper {
+    margin: 0 0 16px;
+  }
+  #safearea #l_main .post-wrapper .post {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+  }
+  #safearea #l_side .widget.mobile {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+  }
+}
+h1,
+h2,
+h3 {
+  font-family: SentyGoldenBell, "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+}
+.iconfont {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+.iconfont.emoji {
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: -0.3em;
+}
+.rem1p5 {
+  font-size: 1.5rem;
+}
+.rem2 {
+  font-size: 2rem;
+}
+.rem6 {
+  font-size: 6rem;
+}
+.rem12 {
+  font-size: 12rem;
+}
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1634487127778" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1634487127778"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1634487303918" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1634487303918"></noscript>
   <script>
     document.addEventListener("error", function(e) {
       const elem = e.target;
@@ -1594,9 +1695,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 		'}'+
 	'</style>'+
     '<div class="kill-ie">'+
-        `<span class="kill-t"><b>抱歉，您的浏览器无法访问本站</b></span><br/>`+
-        `<span class="kill-c">微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</span><br/>`+
-        `<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a>`+
+        `<span class="kill-t"><b>Sorry, your browser cannot access this site</b></span><br/>`+
+        `<span class="kill-c">Microsoft has terminated support for Internet Explorer (IE) 10 and earlier versions in 2016. <br/>There are great security risks to continue using it. Please use contemporary mainstream browsers to access.</span><br/>`+
+        `<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>Learn more ></strong></a>`+
     '</div>');
 </script>
 
@@ -1624,9 +1725,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 		}
 	</style>
     <div class="kill-noscript">
-        <span class="kill-t"><b>抱歉，您的浏览器无法访问本站</b></span><br/>
-        <span class="kill-c">本页面需要浏览器支持（启用）JavaScript</span><br/>
-        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+        <span class="kill-t"><b>Sorry, your browser cannot access this site</b></span><br/>
+        <span class="kill-c">This page requires browser support (enable) JavaScript</span><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>Learn more ></strong></a>
     </div>
 </noscript>
 
@@ -2686,7 +2787,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
     
       
-        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
 </div>
       
     
@@ -2698,9 +2799,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
     
       
-        本站使用
+        Use
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/dev" target="_blank" class="codename">Volantis</a>
-        作为主题
+        as theme
       
     
       
@@ -2751,8 +2852,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <script>
   volantis.message = (title, message, option = {}, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1634487127778')
-      volantis.js('/js/message.js?time=1634487127778', () => {
+      volantis.css('/css/message.css?time=1634487303918')
+      volantis.js('/js/message.js?time=1634487303918', () => {
         tozashMessage(title, message, option, done);
       });
     } else {
@@ -2797,8 +2898,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1634487127778')
-      volantis.js('/js/message.js?time=1634487127778', () => {
+      volantis.css('/css/message.css?time=1634487303918')
+      volantis.js('/js/message.js?time=1634487303918', () => {
         tozashQuestion(title, message, option, success, cancel, done);
       });
     } else {
@@ -2857,8 +2958,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     }
     
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1634487127778')
-      volantis.js('/js/message.js?time=1634487127778', () => {
+      volantis.css('/css/message.css?time=1634487303918')
+      volantis.js('/js/message.js?time=1634487303918', () => {
         hideMessage(done);
       });
     } else {
@@ -2908,7 +3009,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <li class='option menuOption-Content'>
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyText'>
           
-          <i class='fa fa-copy fa-fw'></i> 复制文本
+          <i class='fa fa-copy fa-fw'></i> Copy Text
         </span>
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyPaste'>
           
@@ -2924,11 +3025,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         </span>
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='openTab'>
           
-          <i class='fa fa-external-link-square-alt fa-fw mR12'></i> 在新标签页打开
+          <i class='fa fa-external-link-square-alt fa-fw mR12'></i> Open Link in New Tab
         </span>
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copySrc'>
           
-          <i class='fa fa-image fa-fw mR12'></i> 复制图片地址
+          <i class='fa fa-image fa-fw mR12'></i> Copy Image Link
         </span>
         <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyImg'>
           
@@ -3091,7 +3192,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       volantis.APlayerController = {};
     
-    volantis.js('/js/rightMenu.js?time=1634487127778');
+    volantis.js('/js/rightMenu.js?time=1634487303918');
     }
   </script>
 
@@ -3106,19 +3207,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1634487127778")
+        volantis.js("/js/plugins/sites.js?time=1634487303918")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1634487127778")
+        volantis.js("/js/plugins/friends.js?time=1634487303918")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1634487127778")
+        volantis.js("/js/plugins/contributors.js?time=1634487303918")
       }
     
   };
@@ -3234,7 +3335,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-<script src="/js/app.js?time=1634487127778.js"></script>
+<script src="/js/app.js?time=1634487303918.js"></script>
 
 
 <!-- optional -->
@@ -3247,7 +3348,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js?time=1634487127778");
+    return volantis.js("/js/search/hexo.js?time=1634487303918");
   }
 
   function loadSearchService() {
