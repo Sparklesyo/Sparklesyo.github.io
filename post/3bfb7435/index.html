@@ -21,10 +21,8 @@
   <meta content="Sparkle" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1634486244276" as="style">
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-<link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-
+  <link rel="preload" href="/css/style.css?time=1634486502588" as="style">
+  
   <!-- 页面元数据 -->
   <title>超简短的独立游戏开发教学 - Sparkle</title>
   <meta name="keywords" content="Bilibili,游戏开发,null">
@@ -708,16 +706,132 @@ button {
   -moz-opacity: 1;
   border-bottom: 2px solid var(--color-site-inner);
 }
+.cover-wrapper.dock .menu,
+.cover-wrapper.featured .menu,
+.cover-wrapper.focus .menu {
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+}
+.cover-wrapper.dock .menu .list-h a,
+.cover-wrapper.featured .menu .list-h a,
+.cover-wrapper.focus .menu .list-h a {
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  line-height: 24px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-bottom: none;
+  text-align: center;
+  align-content: flex-end;
+  color: rgba(68,68,68,0.7);
+  font-size: 1.5rem;
+}
+@media screen and (max-width: 500px) {
+  .cover-wrapper.dock .menu .list-h a,
+  .cover-wrapper.featured .menu .list-h a,
+  .cover-wrapper.focus .menu .list-h a {
+    padding: 12px 8px;
+  }
+}
+.cover-wrapper.dock .menu .list-h a i,
+.cover-wrapper.featured .menu .list-h a i,
+.cover-wrapper.focus .menu .list-h a i {
+  margin: 8px;
+}
+.cover-wrapper.dock .menu .list-h a p,
+.cover-wrapper.featured .menu .list-h a p,
+.cover-wrapper.focus .menu .list-h a p {
+  font-size: 0.875rem;
+}
+.cover-wrapper.dock .menu .list-h a.active,
+.cover-wrapper.featured .menu .list-h a.active,
+.cover-wrapper.focus .menu .list-h a.active {
+  background: var(--color-card);
+  backdrop-filter: none;
+}
+.cover-wrapper.dock .menu .list-h a.active i,
+.cover-wrapper.featured .menu .list-h a.active i,
+.cover-wrapper.focus .menu .list-h a.active i,
+.cover-wrapper.dock .menu .list-h a.active i+p,
+.cover-wrapper.featured .menu .list-h a.active i+p,
+.cover-wrapper.focus .menu .list-h a.active i+p {
+  color: #44d7b6;
+}
+.cover-wrapper.dock .menu .list-h a.active img+p,
+.cover-wrapper.featured .menu .list-h a.active img+p,
+.cover-wrapper.focus .menu .list-h a.active img+p {
+  color: var(--color-text);
+}
+.cover-wrapper.dock .menu .list-h a:hover,
+.cover-wrapper.featured .menu .list-h a:hover,
+.cover-wrapper.focus .menu .list-h a:hover {
+  background: var(--color-card);
+}
+.cover-wrapper.dock .top {
+  margin-bottom: 48px;
+}
+.cover-wrapper.dock .menu {
+  background: rgba(255,255,255,0.5);
+  position: absolute;
+  bottom: 0;
+  max-width: 100%;
+}
+.cover-wrapper.dock .menu .list-h {
+  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -khtml-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -o-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  margin: 4px;
+}
+.cover-wrapper.dock .menu .list-h a+a {
+  margin-left: 4px;
+}
+@media screen and (max-width: 500px) {
+  .cover-wrapper.dock .menu .list-h {
+    overflow-x: scroll;
+  }
+  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+  }
+  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-track-piece {
+    background: transparent;
+  }
+  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-thumb {
+    background: #44d7b6;
+    cursor: pointer;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+  }
+  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-thumb:hover {
+    background: #ff5722;
+  }
+}
+@supports (backdrop-filter: blur(20px)) {
+  .cover-wrapper.dock .menu {
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: saturate(200%) blur(20px);
+  }
+}
 @font-face {
   font-family: 'UbuntuMono';
-  src: url("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf");
+  src: url("");
   font-weight: 'normal';
   font-style: 'normal';
   font-display: swap;
 }
 @font-face {
   font-family: 'Varela Round';
-  src: url("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf");
+  src: url("");
   font-weight: 'normal';
   font-style: 'normal';
   font-display: swap;
@@ -1546,8 +1660,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1634486244276" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1634486244276"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1634486502588" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1634486502588"></noscript>
   <script>
     document.addEventListener("error", function(e) {
       const elem = e.target;
@@ -1991,7 +2105,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <!-- Custom Files head end-->
 </head>
   <body itemscope itemtype="http://schema.org/WebPage">
-    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto floatable show" style='opacity: 0' >
+    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -2012,11 +2126,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
         <a class="title flat-box" target="_self" href='/'>
           
+            <img no-lazy class='logo' src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png' alt="This is a picture without description" />
           
-            <i class='https://cdn.jsdelivr.net/gh/Sparklesyo/Collections/img/FN_icon.png'></i>
           
-          
-            <span>Sparkle</span>
           
         </a>
       
@@ -2028,25 +2140,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box header toggle-mode-btn" href="/" onclick="return false;" title="Click me!" >
-                  <i class='fas fa-moon fa-fw'></i>
-                  <span>暗黑模式</span>
-                </a>
-              <li>
-            
-          
-          
-            
-            
-              <li>
                 <a class="menuitem flat-box faa-parent animated-hover" 
-                    href="/" title="文章"
+                    href="/" title="博客"
                   
                   
                   
                     active-action="action-home"
                   >
-                  <span class="icon"><i class='fas fa-rss fa-fw'></i></span> <span>文章</span>
+                  <span class="icon"><i class='fas fa-rss fa-fw'></i></span> <span>博客</span>
                 </a>
                 
               </li>
@@ -2057,37 +2158,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover" 
-                    href="/blog/categories/" title="分类"
+                    href="/categories/" title="分类"
                   
                   
                   
-                    active-action="action-blogcategories"
+                    active-action="action-categories"
                   >
                   <span class="icon"><i class='fas fa-folder-open fa-fw'></i></span> <span>分类</span>
                 </a>
                 
-                  <ul class="list-v">
-                    
-                      
-            
-              <li class='header'>
-                
-                <span>漫画</span>
-              </li>
-            
-          
-                    
-                      
-            
-              <li class='header'>
-                
-                <span>书籍</span>
-              </li>
-            
-          
-                    
-                  </ul>
-                
               </li>
             
           
@@ -2096,11 +2175,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover" 
-                    href="/blog/tags/" title="标签"
+                    href="/tags/" title="标签"
                   
                   
                   
-                    active-action="action-blogtags"
+                    active-action="action-tags"
                   >
                   <span class="icon"><i class='fas fa-tags fa-fw'></i></span> <span>标签</span>
                 </a>
@@ -2113,13 +2192,47 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover" 
-                    href="/archives/" title="时间线"
+                    href="/archives/" title="归档"
                   
                   
                   
                     active-action="action-archives"
                   >
-                  <span class="icon"><i class='fas fa-archive fa-fw'></i></span> <span>时间线</span>
+                  <span class="icon"><i class='fas fa-archive fa-fw'></i></span> <span>归档</span>
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                    href="/friends/" title="友链"
+                  
+                  
+                  
+                    active-action="action-friends"
+                  >
+                  <span class="icon"><i class='fas fa-link fa-fw'></i></span> <span>友链</span>
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                    href="/about/" title="关于"
+                  
+                  
+                  
+                    active-action="action-about"
+                  >
+                  <span class="icon"><i class='fas fa-info-circle fa-fw'></i></span> <span>关于</span>
                 </a>
                 
               </li>
@@ -2146,25 +2259,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
-                <a class="menuitem flat-box header toggle-mode-btn" href="/" onclick="return false;" title="Click me!" >
-                  <i class='fas fa-moon fa-fw'></i>
-                  <span>暗黑模式</span>
-                </a>
-              <li>
-            
-          
-            
-              
-            
-              <li>
                 <a class="menuitem flat-box faa-parent animated-hover" 
-                    href="/" title="文章"
+                    href="/" title="博客"
                   
                   
                   
                     active-action="action-home"
                   >
-                  <span class="icon"><i class='fas fa-rss fa-fw'></i></span> <span>文章</span>
+                  <span class="icon"><i class='fas fa-rss fa-fw'></i></span> <span>博客</span>
                 </a>
                 
               </li>
@@ -2175,37 +2277,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover" 
-                    href="/blog/categories/" title="分类"
+                    href="/categories/" title="分类"
                   
                   
                   
-                    active-action="action-blogcategories"
+                    active-action="action-categories"
                   >
                   <span class="icon"><i class='fas fa-folder-open fa-fw'></i></span> <span>分类</span>
                 </a>
                 
-                  <ul class="list-v">
-                    
-                      
-            
-              <li class='header'>
-                
-                <span>漫画</span>
-              </li>
-            
-          
-                    
-                      
-            
-              <li class='header'>
-                
-                <span>书籍</span>
-              </li>
-            
-          
-                    
-                  </ul>
-                
               </li>
             
           
@@ -2214,11 +2294,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover" 
-                    href="/blog/tags/" title="标签"
+                    href="/tags/" title="标签"
                   
                   
                   
-                    active-action="action-blogtags"
+                    active-action="action-tags"
                   >
                   <span class="icon"><i class='fas fa-tags fa-fw'></i></span> <span>标签</span>
                 </a>
@@ -2231,13 +2311,47 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover" 
-                    href="/archives/" title="时间线"
+                    href="/archives/" title="归档"
                   
                   
                   
                     active-action="action-archives"
                   >
-                  <span class="icon"><i class='fas fa-archive fa-fw'></i></span> <span>时间线</span>
+                  <span class="icon"><i class='fas fa-archive fa-fw'></i></span> <span>归档</span>
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                    href="/friends/" title="友链"
+                  
+                  
+                  
+                    active-action="action-friends"
+                  >
+                  <span class="icon"><i class='fas fa-link fa-fw'></i></span> <span>友链</span>
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                    href="/about/" title="关于"
+                  
+                  
+                  
+                    active-action="action-about"
+                  >
+                  <span class="icon"><i class='fas fa-info-circle fa-fw'></i></span> <span>关于</span>
                 </a>
                 
               </li>
@@ -2261,10 +2375,72 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="none" class='cover-wrapper post blank' style="display: none;">
+      <div id="none" class='cover-wrapper post dock' style="display: none;">
         
-  <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/Sparklesyo/Collections/img/55647411_p0.jpg"></div>
+  <div class='cover-bg lazyload placeholder' data-bg="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture"></div>
 
+<div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">枋柚梓</p>
+    
+    
+      <p class="subtitle">吾法念无念念，行无行行，言无言言，修无修修。</p>
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+          
+            <a href="/v4/getting-started/"
+              
+              
+              active-action="action-v4getting-started">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg' alt="This is a picture without description" ><p>文档</p>
+            </a>
+          
+            <a href="/faqs/"
+              
+              
+              active-action="action-faqs">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg' alt="This is a picture without description" ><p>帮助</p>
+            </a>
+          
+            <a href="/examples/"
+              
+              
+              active-action="action-examples">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f396.svg' alt="This is a picture without description" ><p>示例</p>
+            </a>
+          
+            <a href="/contributors/"
+              
+              
+              active-action="action-contributors">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f389.svg' alt="This is a picture without description" ><p>社区</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              active-action="action-archives">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg' alt="This is a picture without description" ><p>博客</p>
+            </a>
+          
+            <a target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/"
+              
+              
+              active-action="action-https:githubcomvolantis-xhexo-theme-volantis">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f9ec.svg' alt="This is a picture without description" ><p>源码</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
 
         <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
       </div>
@@ -2276,7 +2452,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper">
           
 <div id="l_main" class=''>
-  <article itemscope itemtype="http://schema.org/Article" class=" article post white-box reveal md floatable article-type-post" id="post" itemscope itemprop="blogPost">
+  <article itemscope itemtype="http://schema.org/Article" class=" article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   <link itemprop="mainEntityOfPage" href="http://example.com/post/3bfb7435/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Sparkle">
@@ -2302,8 +2478,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
 <div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
   <a itemprop="url" class='author' href="/" rel="nofollow">
-    <img itemprop="image" no-lazy src="https://cdn.jsdelivr.net/gh/Sparklesyo/Collections/img/FN_icon.png" alt="Author">
-    <p itemprop="name">斯帕蔻</p>
+    <img itemprop="image" no-lazy src="" alt="Author">
+    <p itemprop="name">请设置文章作者</p>
   </a>
 </div>
 
@@ -2467,6 +2643,21 @@ void Handler(string message)&#123;
       
       
       
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://example.com/post/3bfb7435/>http://example.com/post/3bfb7435/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
       
     </div>
   
@@ -2588,7 +2779,7 @@ void Handler(string message)&#123;
 
   
   
-    <article class="post white-box reveal floatable" id="comments">
+    <article class="post white-box reveal shadow" id="comments">
       <span hidden>
         <meta itemprop="discussionUrl" content="/post/3bfb7435/index.html#comments">
       </span>
@@ -2613,7 +2804,7 @@ void Handler(string message)&#123;
 
 
 
-  <section class="widget toc-wrapper floatable desktop mobile pjax" id="toc-div" >
+  <section class="widget toc-wrapper shadow desktop mobile pjax" id="toc-div" >
     
   <header>
     
@@ -2624,7 +2815,7 @@ void Handler(string message)&#123;
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ep-01-%E8%BF%98%E4%B8%8D%E6%87%82%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%EF%BC%9F"><span class="toc-text">Ep.01 还不懂游戏开发？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ep-02-%E5%B7%A5%E6%AC%B2%E5%96%84%E5%85%B6%E4%BA%8B%EF%BC%8C%E5%BF%85%E5%85%88%E5%88%A9%E5%85%B6%E5%99%A8"><span class="toc-text">Ep.02 工欲善其事，必先利其器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ep-03-%E6%83%B3%E5%BC%80%E5%8F%91%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F%EF%BC%8C%E4%B8%80%E5%AE%9A%E8%A6%81%E5%85%88%E5%AD%A6%E5%A5%BD%E7%BC%96%E7%A8%8B%E5%90%97%EF%BC%9F"><span class="toc-text">Ep.03 想开发独立游戏，一定要先学好编程吗？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ep-04-%E4%B8%80%E4%B8%AA%E8%A7%86%E9%A2%91%EF%BC%8C%E5%B8%A6%E4%BD%A0%E4%B8%8A%E9%81%93%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B"><span class="toc-text">Ep.04 一个视频，带你上道游戏编程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ep-05-%E4%BB%8E%E6%97%A0%E5%88%B0%E6%9C%89%EF%BC%8C%E5%88%B6%E4%BD%9C%E4%B8%80%E4%B8%AA%E6%B8%B8%E6%88%8F%E5%B0%8F%E6%A0%B7"><span class="toc-text">Ep.05 从无到有，制作一个游戏小样</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ep-06-%E8%A7%84%E5%88%99%E7%9A%84%E5%8D%83%E5%8F%98%E4%B8%87%E5%8C%96%EF%BC%81%E8%B6%85%E8%BF%B7%E4%BD%A0%E5%85%B3%E5%8D%A1%E8%AE%BE%E8%AE%A1"><span class="toc-text">Ep.06 规则的千变万化！超迷你关卡设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ep-07-%E4%B8%80%E6%AC%A1%E7%9C%8B%E8%BF%87-Unity-%E5%B8%B8%E7%94%A8%E7%BB%84%E4%BB%B6"><span class="toc-text">Ep.07 一次看过 Unity 常用组件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ep-08-UI-%E8%BF%98%E8%83%BD%E9%95%BF%E4%BB%80%E4%B9%88%E6%A0%B7%EF%BC%9F"><span class="toc-text">Ep.08 UI 还能长什么样？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ep-09-%E8%8D%89%E5%B1%A5%E8%99%AB%E4%B9%9F%E8%83%BD%E7%9C%8B%E6%87%82%E7%9A%84%E4%B9%90%E7%90%86%E5%85%A5%E9%97%A8"><span class="toc-text">Ep.09 草履虫也能看懂的乐理入门</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ep-10-%E4%B8%BA%E4%BA%86%E8%AE%B2%E6%95%85%E4%BA%8B%E5%88%9B%E9%80%A0%E4%B8%80%E4%B8%AA%E4%B8%96%E7%95%8C%EF%BC%9F"><span class="toc-text">Ep.10 为了讲故事创造一个世界？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ep-11-%E6%95%B2%E4%BB%A3%E7%A0%81%E6%98%AF%E4%B8%BA%E4%BA%86%E4%B8%8D%E6%95%B2%E4%BB%A3%E7%A0%81%EF%BC%9F"><span class="toc-text">Ep.11 敲代码是为了不敲代码？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ep-12-%E4%B8%80%E5%BF%83%E4%BA%8C%E7%94%A8%E7%9A%84%E5%A6%99%E7%94%A8"><span class="toc-text">Ep.12 一心二用的妙用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-text">小结</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-text">小结</span></a></li></ol>
     </div>
   </section>
 
@@ -2739,13 +2930,13 @@ void Handler(string message)&#123;
     
       
         Use
-        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/5.0.0-rc.1" target="_blank" class="codename">Volantis</a>
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/dev" target="_blank" class="codename">Volantis</a>
         as theme
       
     
       
         <div class='copyright'>
-        <p><a href="/">Copyright © 2021 XXX</a></p>
+        <p><a href="/">Copyright © 2017-2020 XXX</a></p>
 
         </div>
       
@@ -2791,8 +2982,8 @@ void Handler(string message)&#123;
   <script>
   volantis.message = (title, message, option = {}, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1634486244276')
-      volantis.js('/js/message.js?time=1634486244276', () => {
+      volantis.css('/css/message.css?time=1634486502588')
+      volantis.js('/js/message.js?time=1634486502588', () => {
         tozashMessage(title, message, option, done);
       });
     } else {
@@ -2837,8 +3028,8 @@ void Handler(string message)&#123;
 
   volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1634486244276')
-      volantis.js('/js/message.js?time=1634486244276', () => {
+      volantis.css('/css/message.css?time=1634486502588')
+      volantis.js('/js/message.js?time=1634486502588', () => {
         tozashQuestion(title, message, option, success, cancel, done);
       });
     } else {
@@ -2897,8 +3088,8 @@ void Handler(string message)&#123;
     }
     
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1634486244276')
-      volantis.js('/js/message.js?time=1634486244276', () => {
+      volantis.css('/css/message.css?time=1634486502588')
+      volantis.js('/js/message.js?time=1634486502588', () => {
         hideMessage(done);
       });
     } else {
@@ -3131,7 +3322,7 @@ void Handler(string message)&#123;
     
       volantis.APlayerController = {};
     
-    volantis.js('/js/rightMenu.js?time=1634486244276');
+    volantis.js('/js/rightMenu.js?time=1634486502588');
     }
   </script>
 
@@ -3146,19 +3337,19 @@ void Handler(string message)&#123;
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1634486244276")
+        volantis.js("/js/plugins/sites.js?time=1634486502588")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1634486244276")
+        volantis.js("/js/plugins/friends.js?time=1634486502588")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1634486244276")
+        volantis.js("/js/plugins/contributors.js?time=1634486502588")
       }
     
   };
@@ -3274,7 +3465,7 @@ void Handler(string message)&#123;
 
 
 
-<script src="/js/app.js?time=1634486244276.js"></script>
+<script src="/js/app.js?time=1634486502588.js"></script>
 
 
 <!-- optional -->
@@ -3287,7 +3478,7 @@ void Handler(string message)&#123;
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js?time=1634486244276");
+    return volantis.js("/js/search/hexo.js?time=1634486502588");
   }
 
   function loadSearchService() {
