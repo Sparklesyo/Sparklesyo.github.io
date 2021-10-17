@@ -1,14 +1,235 @@
-<!DOCTYPE html><html lang="cn"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="深度强化学习落地指南 05"><meta name="keywords" content="深度学习,强化学习"><meta name="author" content="斯帕蔻"><meta name="copyright" content="斯帕蔻"><title>深度强化学习落地指南 05 | Sparkle</title><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Sparklesyo/Collections/img/FN_icon.png"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  copy: {
-    success: 'Copy successfully',
-    error: 'Copy error',
-    noSupport: 'The browser does not support'
-  },
-  hexoVersion: '5.4.0'
-} </script><meta name="generator" content="Hexo 5.4.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%AE%97%E6%B3%95%E9%80%89%E6%8B%A9"><span class="toc-number">1.</span> <span class="toc-text">第五章 算法选择</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89-amp-%E6%94%B9%E8%89%AF%E4%B8%BB%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">拿来主义 &amp; 改良主义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Model-Based"><span class="toc-number">1.1.1.</span> <span class="toc-text">Model-Based</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Model-Free"><span class="toc-number">1.1.2.</span> <span class="toc-text">Model-Free</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E7%AD%9B%E3%80%81%E4%BA%8C%E6%AF%94%E3%80%81%E4%B8%89%E6%94%B9%E8%89%AF"><span class="toc-number">1.1.3.</span> <span class="toc-text">一筛、二比、三改良</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">1.2.</span> <span class="toc-text">参考文献</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://cdn.jsdelivr.net/gh/Sparklesyo/Collections/img/FN_icon.png"></div><div class="author-info__name text-center">斯帕蔻</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">25</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">16</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">14</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://cdn.jsdelivr.net/gh/Sparklesyo/Collections/img/55647411_p0.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Sparkle</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">深度强化学习落地指南 05</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-15</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E4%B9%A6%E7%B1%8D/">书籍</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E4%B9%A6%E7%B1%8D/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E8%90%BD%E5%9C%B0%E6%8C%87%E5%8D%97/">深度强化学习落地指南</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="第五章-算法选择"><a href="#第五章-算法选择" class="headerlink" title="第五章 算法选择"></a>第五章 算法选择</h1><h2 id="拿来主义-amp-改良主义"><a href="#拿来主义-amp-改良主义" class="headerlink" title="拿来主义 &amp; 改良主义"></a>拿来主义 &amp; 改良主义</h2><p>尽管深度强化学习算法已经取得长足进步，但尚未在理论层面取得质的突破，而只是在传统强化学习理论基础上引入深度神经网络，并做了一系列适配和增量式改进工作。</p>
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"بحث...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="第五章 算法选择拿来主义 &amp; 改良主义尽管深度强化学习算法已经取得长足进步，但尚未在理论层面取得质的突破，而只是在传统强化学习理论基础上引入深度神经网络，并做了一系列适配和增量式改进工作。 总体上，DRL 算法沿着 Model-Based 和 Model-Free 两大分支发展。 Model-BasedModel-Based 算法利用已知环境模型&#x2F;对未知环境模型进行显式建模，并与前向搜索">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度强化学习落地指南 05">
+<meta property="og:url" content="http://example.com/post/ead94b8/index.html">
+<meta property="og:site_name" content="Sparkle">
+<meta property="og:description" content="第五章 算法选择拿来主义 &amp; 改良主义尽管深度强化学习算法已经取得长足进步，但尚未在理论层面取得质的突破，而只是在传统强化学习理论基础上引入深度神经网络，并做了一系列适配和增量式改进工作。 总体上，DRL 算法沿着 Model-Based 和 Model-Free 两大分支发展。 Model-BasedModel-Based 算法利用已知环境模型&#x2F;对未知环境模型进行显式建模，并与前向搜索">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-10-14T17:17:12.000Z">
+<meta property="article:modified_time" content="2021-10-15T17:15:59.295Z">
+<meta property="article:author" content="斯帕蔻">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="强化学习">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/post/ead94b8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"cn","comments":true,"permalink":"http://example.com/post/ead94b8/","path":"/post/ead94b8/","title":"深度强化学习落地指南 05"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>深度强化学习落地指南 05 | Sparkle</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="تشغيل شريط التصفح" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Sparkle</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          المحتويات
+        </li>
+        <li class="sidebar-nav-overview">
+          عام
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%AE%97%E6%B3%95%E9%80%89%E6%8B%A9"><span class="nav-number">1.</span> <span class="nav-text">第五章 算法选择</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%BF%E6%9D%A5%E4%B8%BB%E4%B9%89-amp-%E6%94%B9%E8%89%AF%E4%B8%BB%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">拿来主义 &amp; 改良主义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-Based"><span class="nav-number">1.1.1.</span> <span class="nav-text">Model-Based</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-Free"><span class="nav-number">1.1.2.</span> <span class="nav-text">Model-Free</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E7%AD%9B%E3%80%81%E4%BA%8C%E6%AF%94%E3%80%81%E4%B8%89%E6%94%B9%E8%89%AF"><span class="nav-number">1.1.3.</span> <span class="nav-text">一筛、二比、三改良</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">1.2.</span> <span class="nav-text">参考文献</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">斯帕蔻</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">المقالات</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">التصنيفات</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">الوسوم</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="cn">
+    <link itemprop="mainEntityOfPage" href="http://example.com/post/ead94b8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="斯帕蔻">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sparkle">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          深度强化学习落地指南 05
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">نُشر في</span>
+
+      <time title="أُنشأ: 2021-10-15 01:17:12" itemprop="dateCreated datePublished" datetime="2021-10-15T01:17:12+08:00">2021-10-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">عُدل في</span>
+        <time title="عُدل: 2021-10-16 01:15:59" itemprop="dateModified" datetime="2021-10-16T01:15:59+08:00">2021-10-16</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">في</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B9%A6%E7%B1%8D/" itemprop="url" rel="index"><span itemprop="name">书籍</span></a>
+        </span>
+          ، 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B9%A6%E7%B1%8D/%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E8%90%BD%E5%9C%B0%E6%8C%87%E5%8D%97/" itemprop="url" rel="index"><span itemprop="name">深度强化学习落地指南</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="第五章-算法选择"><a href="#第五章-算法选择" class="headerlink" title="第五章 算法选择"></a>第五章 算法选择</h1><h2 id="拿来主义-amp-改良主义"><a href="#拿来主义-amp-改良主义" class="headerlink" title="拿来主义 &amp; 改良主义"></a>拿来主义 &amp; 改良主义</h2><p>尽管深度强化学习算法已经取得长足进步，但尚未在理论层面取得质的突破，而只是在传统强化学习理论基础上引入深度神经网络，并做了一系列适配和增量式改进工作。</p>
 <p>总体上，DRL 算法沿着 Model-Based 和 Model-Free 两大分支发展。</p>
 <h3 id="Model-Based"><a href="#Model-Based" class="headerlink" title="Model-Based"></a>Model-Based</h3><p>Model-Based 算法利用已知环境模型/对未知环境模型进行显式建模，并与<strong>前向搜索 (Look Ahead Search)</strong> 和<strong>轨迹优化 (Trajectory Optimization)</strong> 等规划算法结合达到提升数据效率的目的。但未在实践中得到广泛应用，因为现实任务的环境模型通常十分复杂，导致模型学习的难度很高<a href="#refer-anchor"><sup>[1,2]</sup></a>，并且建模误差也会对策略造成负面影响。</p>
 <h3 id="Model-Free"><a href="#Model-Free" class="headerlink" title="Model-Free"></a>Model-Free</h3><p>Model-Free 算法可以解构为“基本原理——探索方式——样本管理——梯度计算”的四元核心组件。<br>按照基本原理可以分为：Value-Based &amp; Policy-Based；On-Policy &amp; Off-Policy。</p>
@@ -49,8 +270,81 @@
 6.
 7.
 8.
-</div></article><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a><a class="post-meta__tags" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">强化学习</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/post/d04bd5bc/"><i class="fa fa-chevron-left">  </i><span>操作系统</span></a></div><div class="next-post pull-right"><a href="/post/1eccdf68/"><span>わたしが恋人になれるわけないじゃん、ムリムリ！01</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/Sparklesyo/Collections/img/55647411_p0.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2021 By 斯帕蔻</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
-  $('#nav').addClass('is-mobile')
-  $('footer').addClass('is-mobile')
-  $('#top-container').addClass('is-mobile')
-}</script></body></html>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
+              <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag"># 强化学习</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/1eccdf68/" rel="prev" title="わたしが恋人になれるわけないじゃん、ムリムリ！01">
+                  <i class="fa fa-chevron-left"></i> わたしが恋人になれるわけないじゃん、ムリムリ！01
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/d04bd5bc/" rel="next" title="操作系统">
+                  操作系统 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">斯帕蔻</span>
+</div>
+  <div class="powered-by">تطبيق الموقع <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-core.min.js" integrity="sha256-vlRYHThwdq55dA+n1BKQRzzLwFtH9VINdSI68+5JhpU=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-cl5LNmPvcRcGFaQFjwEKIfs51AX7wBkvoByH6LTxQCs=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha256-K837BwIyiXo5k/9fCYgqUyA14bN4/Ve9P2SIT0KmZD0=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
