@@ -30,7 +30,7 @@ const RightMenu = (() => {
     const readBkg = document.createElement("div");
     readBkg.className = "common_read_bkg common_read_hide";
     readBkg.id = "read_bkg";
-    window.document.body.appendChild(readBkg);
+    document.getElementById('BKG').parentNode.appendChild(readBkg);
   }
 
   fn.initEvent = () => {
@@ -76,6 +76,7 @@ const RightMenu = (() => {
       _rightMenuWrapper.style.left = showLeft + "px";
       _rightMenuWrapper.style.top = showTop + "px";
       _rightMenuWrapper.style.zIndex = '2147483648';
+      fn.showMessage();
     } catch (error) {
       _rightMenuWrapper.blur();
       console.error(error);
@@ -83,6 +84,18 @@ const RightMenu = (() => {
     }
 
     return false;
+  }
+
+  // 消息提示
+  fn.showMessage = () => {
+    const NoticRightMenu = localStorage.getItem('NoticRightMenu') === 'true';
+    if (volantis.messageRightMenu.enable && !NoticRightMenu) 
+      volantis.message('右键菜单', '唤醒原系统菜单请使用：<kbd>Ctrl</kbd> + <kbd>右键</kbd>', {
+        icon: volantis.rightMenu.faicon + ' fa-exclamation-square red',
+        time: 5000
+      }, () => {
+        localStorage.setItem('NoticRightMenu', 'true')
+      });
   }
 
   // 菜单项设置 
@@ -479,6 +492,12 @@ const RightMenu = (() => {
     fn.toggleClass(document.querySelector('#l_cover'), 'read_cover')
     fn.toggleClass(document.querySelector('.widget.toc-wrapper'), 'post_read')
 
+    // if(document.querySelector('.cus-article-bkg')) {
+    //   fn.fadeToggle(document.querySelector('.cus-article-bkg'))
+    // } else {
+    //   fn.fadeToggle(document.querySelector('#BKG'))
+    // }
+
     volantis.isReadModel = volantis.isReadModel === undefined ? true : !volantis.isReadModel;
     if (volantis.isReadModel) {
       const option = {
@@ -496,6 +515,7 @@ const RightMenu = (() => {
     } else {
       document.querySelector('#l_body').removeEventListener('click', fn.readingModel);
       document.querySelector('#post').removeEventListener('click', fn.readingModel);
+      document.querySelector('.prev-next').style.display = 'flex'; // 单独修改
     }
   }
 

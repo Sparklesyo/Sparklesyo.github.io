@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
     volantisFancyBox.loadFancyBox();
     highlightKeyWords.startFromURL();
     locationHash();
-
+    //changeTitle();
+  
     volantis.pjax.push(() => {
       VolantisApp.pjaxReload();
       sessionStorage.setItem("domTitle", document.title);
@@ -20,6 +21,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 'app.js');
   });
 });
+
+// 动态修改标题
+const changeTitle = () => {
+  sessionStorage.setItem("domTitle", document.title);
+  document.addEventListener('visibilitychange', function () {
+    const title = sessionStorage.getItem("domTitle") || document.title;
+    const titleArr = title.split(' - ') || [];
+    if (document.visibilityState == 'hidden') {
+      document.title = titleArr.length === 2 ? titleArr[1] : titleArr[0];
+    } else {
+      document.title = title;
+    }
+  });
+}
 
 /*锚点定位*/
 const locationHash = () => {
@@ -345,6 +360,70 @@ const VolantisApp = (() => {
     })
   }
 
+  // 设定激活/销毁自定义右键
+  window.checkRightMenu = true;
+  fn.toggleRightMenu = () => {
+    let _destroyRightContent = document.getElementById('destroyRightContent');
+    let _initRightContent = document.getElementById('initRightContent');
+
+    if (_destroyRightContent || _initRightContent) {
+      if (window.checkRightMenu) {
+        _destroyRightContent.style.display = "block";
+        _initRightContent.style.display = "none";
+      } else {
+        _initRightContent.style.display = "block";
+        _destroyRightContent.style.display = "none";
+      }
+
+      _destroyRightContent.removeEventListener('click', null);
+      _destroyRightContent.addEventListener('click', function () {
+        RightMenu.destroy(true);
+        window.checkRightMenu = false;
+        _initRightContent.style.display = "block";
+        _destroyRightContent.style.display = "none";
+      })
+
+      _initRightContent.removeEventListener('click', null);
+      _initRightContent.addEventListener('click', function () {
+        RightMenu.init(true);
+        window.checkRightMenu = true;
+        _destroyRightContent.style.display = "block";
+        _initRightContent.style.display = "none";
+      })
+    }
+  }
+
+  // 评论切换
+  volantis.selectComment = 'beaudar';
+  fn.switchComment = () => {
+    const _btn = document.getElementById('switchBtn');
+    if (_btn) {
+      if(volantis.selectComment !== 'beaudar') {
+        _btn.classList.remove('move');
+      } 
+      _btn.onclick = function () {
+        const _twikoo = document.getElementById('twikoo');
+        const _beaudar = document.getElementById('beaudar_container');
+        if (volantis.selectComment === 'twikoo') {
+          _twikoo.classList.toggle('content-in');
+          _beaudar.classList.toggle('content-in');
+          volantis.selectComment = 'beaudar';
+          _twikoo.style.display = 'none';
+          _twikoo.classList.remove('content-in');
+          _beaudar.style.display = 'block';
+          _beaudar.classList.add('content-in');
+        } else {
+          volantis.selectComment = 'twikoo';
+          _twikoo.style.display = 'block';
+          _twikoo.classList.add('content-in');
+          _beaudar.style.display = 'none';
+          _beaudar.classList.remove('content-in');
+        }
+        _btn.classList.toggle("move");
+      }
+    }
+  }
+
   // hexo-reference 页脚跳转 https://github.com/volantis-x/hexo-theme-volantis/issues/647
   fn.footnotes = () => {
     let ref = document.querySelectorAll('#l_main .footnote-backref, #l_main .footnote-ref > a');
@@ -396,7 +475,7 @@ const VolantisApp = (() => {
           }, 2000)
         }).catch(e => {
           volantis.message('系统提示', e, {
-            icon: 'fa fa-exclamation-circle red'
+            icon: 'fal fa-exclamation-circle red'
           });
           _BtnCopy.classList.add('copied-failed');
           _icon.classList.remove('fa-copy');
@@ -459,8 +538,10 @@ const VolantisApp = (() => {
       fn.setHeaderSearch();
       fn.setScrollAnchor();
       fn.setTabs();
+      fn.toggleRightMenu();
       fn.footnotes();
       fn.copyCode();
+      fn.switchComment();
     },
     pjaxReload: () => {
       fn.event();
@@ -470,8 +551,10 @@ const VolantisApp = (() => {
       fn.setPageHeaderMenuEvent();
       fn.setScrollAnchor();
       fn.setTabs();
+      fn.toggleRightMenu();
       fn.footnotes();
       fn.copyCode();
+      fn.switchComment();
 
       // 移除小尾巴的移除
       document.querySelector("#l_header .nav-main").querySelectorAll('.list-v:not(.menu-phone)').forEach(function (e) {
@@ -701,7 +784,7 @@ const highlightKeyWords = (() => {
     if (!mark) return;
     mark.id = "keyword-mark-" + fn.markNum;
     fn.markNum++;
-    mark.style.background = "transparent";
+    mark.style.background = "#ff0";
     mark.style["border-bottom"] = "1px dashed #ff2a2a";
     mark.style["color"] = "#ff2a2a";
     mark.style["font-weight"] = "bold";
