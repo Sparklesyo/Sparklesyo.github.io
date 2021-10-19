@@ -1,13 +1,1160 @@
-<!DOCTYPE html><html lang="cn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>剑指 Offer | Sparkle</title><script src="https://cdn.bootcss.com/valine/1.4.4/Valine.min.js"></script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.2/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
- font-family: BenderLight;
- src: local('Bender'), url("/font/BenderLight.ttf");
-}
-@font-face {
- font-family: 'JetBrains Mono';
- src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
-}</style><meta name="generator" content="Hexo 5.4.0"></head><body><header><nav><a href="/">Home</a><a href="/archives/">Archives</a></nav></header><main><article><div id="post-bg"><div id="post-title"><h1>剑指 Offer</h1><hr></div><div id="post-content"><h1 id="Question-01-赋值运算符函数"><a href="#Question-01-赋值运算符函数" class="headerlink" title="Question 01 赋值运算符函数"></a>Question 01 赋值运算符函数</h1><h1 id="Question-02-实现-Singleton-模式"><a href="#Question-02-实现-Singleton-模式" class="headerlink" title="Question 02 实现 Singleton 模式"></a>Question 02 实现 Singleton 模式</h1><h1 id="Question-03-数组中重复的数字"><a href="#Question-03-数组中重复的数字" class="headerlink" title="Question 03 数组中重复的数字"></a>Question 03 数组中重复的数字</h1><h1 id="Question-04-二维数组中的查找"><a href="#Question-04-二维数组中的查找" class="headerlink" title="Question 04 二维数组中的查找"></a>Question 04 二维数组中的查找</h1><h1 id="Question-05-替换空格"><a href="#Question-05-替换空格" class="headerlink" title="Question 05 替换空格"></a>Question 05 替换空格</h1><h1 id="Question-06-从尾到头打印链表"><a href="#Question-06-从尾到头打印链表" class="headerlink" title="Question 06 从尾到头打印链表"></a>Question 06 从尾到头打印链表</h1><h1 id="Question-07-重建二叉树"><a href="#Question-07-重建二叉树" class="headerlink" title="Question 07 重建二叉树"></a>Question 07 重建二叉树</h1><h1 id="Question-08-二叉树的下一个节点"><a href="#Question-08-二叉树的下一个节点" class="headerlink" title="Question 08 二叉树的下一个节点"></a>Question 08 二叉树的下一个节点</h1><h1 id="Question-09-用两个栈实现队列"><a href="#Question-09-用两个栈实现队列" class="headerlink" title="Question 09 用两个栈实现队列"></a>Question 09 用两个栈实现队列</h1><h1 id="Question-10-斐波那契数列"><a href="#Question-10-斐波那契数列" class="headerlink" title="Question 10 斐波那契数列"></a>Question 10 斐波那契数列</h1><h1 id="Question-11-旋转数组中的最小数字"><a href="#Question-11-旋转数组中的最小数字" class="headerlink" title="Question 11 旋转数组中的最小数字"></a>Question 11 旋转数组中的最小数字</h1><h1 id="Question-12-矩阵中的路径"><a href="#Question-12-矩阵中的路径" class="headerlink" title="Question 12 矩阵中的路径"></a>Question 12 矩阵中的路径</h1><h1 id="Question-13-机器人的运动范围"><a href="#Question-13-机器人的运动范围" class="headerlink" title="Question 13 机器人的运动范围"></a>Question 13 机器人的运动范围</h1><h1 id="Question-14-剪绳子"><a href="#Question-14-剪绳子" class="headerlink" title="Question 14 剪绳子"></a>Question 14 剪绳子</h1><h1 id="Question-15-二进制中-1-的个数"><a href="#Question-15-二进制中-1-的个数" class="headerlink" title="Question 15 二进制中 1 的个数"></a>Question 15 二进制中 1 的个数</h1><h1 id="Question-16-数值的整数次方"><a href="#Question-16-数值的整数次方" class="headerlink" title="Question 16 数值的整数次方"></a>Question 16 数值的整数次方</h1><h1 id="Question-17-打印从-1-到最大的-n-个数"><a href="#Question-17-打印从-1-到最大的-n-个数" class="headerlink" title="Question 17 打印从 1 到最大的 n 个数"></a>Question 17 打印从 1 到最大的 n 个数</h1><h1 id="Question-18-删除链表中的节点"><a href="#Question-18-删除链表中的节点" class="headerlink" title="Question 18 删除链表中的节点"></a>Question 18 删除链表中的节点</h1><h1 id="Question-19-正则表达式匹配"><a href="#Question-19-正则表达式匹配" class="headerlink" title="Question 19 正则表达式匹配"></a>Question 19 正则表达式匹配</h1><h1 id="Question-20-表示数值的字符串"><a href="#Question-20-表示数值的字符串" class="headerlink" title="Question 20 表示数值的字符串"></a>Question 20 表示数值的字符串</h1><h1 id="Question-21-调整数组顺序使奇数位于偶数前面"><a href="#Question-21-调整数组顺序使奇数位于偶数前面" class="headerlink" title="Question 21 调整数组顺序使奇数位于偶数前面"></a>Question 21 调整数组顺序使奇数位于偶数前面</h1><h1 id="Question-22-链表中倒数第-k-个节点"><a href="#Question-22-链表中倒数第-k-个节点" class="headerlink" title="Question 22 链表中倒数第 k 个节点"></a>Question 22 链表中倒数第 k 个节点</h1><h1 id="Question-23-链表中环的入口节点"><a href="#Question-23-链表中环的入口节点" class="headerlink" title="Question 23 链表中环的入口节点"></a>Question 23 链表中环的入口节点</h1><h1 id="Question-24-反转链表"><a href="#Question-24-反转链表" class="headerlink" title="Question 24 反转链表"></a>Question 24 反转链表</h1><h1 id="Question-25-合并两个排序的链表"><a href="#Question-25-合并两个排序的链表" class="headerlink" title="Question 25 合并两个排序的链表"></a>Question 25 合并两个排序的链表</h1><h1 id="Question-26-树的子结构"><a href="#Question-26-树的子结构" class="headerlink" title="Question 26 树的子结构"></a>Question 26 树的子结构</h1><h1 id="Question-27-二叉树的镜像"><a href="#Question-27-二叉树的镜像" class="headerlink" title="Question 27 二叉树的镜像"></a>Question 27 二叉树的镜像</h1><h1 id="Question-28-对称的二叉树"><a href="#Question-28-对称的二叉树" class="headerlink" title="Question 28 对称的二叉树"></a>Question 28 对称的二叉树</h1><h1 id="Question-29-顺时针打印矩阵"><a href="#Question-29-顺时针打印矩阵" class="headerlink" title="Question 29 顺时针打印矩阵"></a>Question 29 顺时针打印矩阵</h1><h1 id="Question-30-包含-min-函数的栈"><a href="#Question-30-包含-min-函数的栈" class="headerlink" title="Question 30 包含 min 函数的栈"></a>Question 30 包含 min 函数的栈</h1><h1 id="Question-31-栈的压入、弹出序列"><a href="#Question-31-栈的压入、弹出序列" class="headerlink" title="Question 31 栈的压入、弹出序列"></a>Question 31 栈的压入、弹出序列</h1><h1 id="Question-32-从上到下打印二叉树"><a href="#Question-32-从上到下打印二叉树" class="headerlink" title="Question 32 从上到下打印二叉树"></a>Question 32 从上到下打印二叉树</h1><h1 id="Question-33-二叉搜索树的后序遍历序列"><a href="#Question-33-二叉搜索树的后序遍历序列" class="headerlink" title="Question 33 二叉搜索树的后序遍历序列"></a>Question 33 二叉搜索树的后序遍历序列</h1><h1 id="Question-34-二叉树中和位某一值的路径"><a href="#Question-34-二叉树中和位某一值的路径" class="headerlink" title="Question 34 二叉树中和位某一值的路径"></a>Question 34 二叉树中和位某一值的路径</h1><h1 id="Question-35-复杂链表的复制"><a href="#Question-35-复杂链表的复制" class="headerlink" title="Question 35 复杂链表的复制"></a>Question 35 复杂链表的复制</h1><h1 id="Question-36-二叉搜索树与双向链表"><a href="#Question-36-二叉搜索树与双向链表" class="headerlink" title="Question 36 二叉搜索树与双向链表"></a>Question 36 二叉搜索树与双向链表</h1><h1 id="Question-37-序列化二叉树"><a href="#Question-37-序列化二叉树" class="headerlink" title="Question 37 序列化二叉树"></a>Question 37 序列化二叉树</h1><h1 id="Question-38-字符串的排列"><a href="#Question-38-字符串的排列" class="headerlink" title="Question 38 字符串的排列"></a>Question 38 字符串的排列</h1><h1 id="Question-39-数组中出现次数超过一半的数字"><a href="#Question-39-数组中出现次数超过一半的数字" class="headerlink" title="Question 39 数组中出现次数超过一半的数字"></a>Question 39 数组中出现次数超过一半的数字</h1><h1 id="Question-40-最小的-k-个数"><a href="#Question-40-最小的-k-个数" class="headerlink" title="Question 40 最小的 k 个数"></a>Question 40 最小的 k 个数</h1><h1 id="Question-41-数据流中的中位数"><a href="#Question-41-数据流中的中位数" class="headerlink" title="Question 41 数据流中的中位数"></a>Question 41 数据流中的中位数</h1><h1 id="Question-42-连续子数组的最大和"><a href="#Question-42-连续子数组的最大和" class="headerlink" title="Question 42 连续子数组的最大和"></a>Question 42 连续子数组的最大和</h1><h1 id="Question-43-1-n-整数中-1-出现的次数"><a href="#Question-43-1-n-整数中-1-出现的次数" class="headerlink" title="Question 43 1~n 整数中 1 出现的次数"></a>Question 43 1~n 整数中 1 出现的次数</h1><h1 id="Question-44-数字序列中某一位的主子"><a href="#Question-44-数字序列中某一位的主子" class="headerlink" title="Question 44 数字序列中某一位的主子"></a>Question 44 数字序列中某一位的主子</h1><h1 id="Question-45-把数组排成最小的数"><a href="#Question-45-把数组排成最小的数" class="headerlink" title="Question 45 把数组排成最小的数"></a>Question 45 把数组排成最小的数</h1><h1 id="Question-46-把数字翻译成字符串"><a href="#Question-46-把数字翻译成字符串" class="headerlink" title="Question 46 把数字翻译成字符串"></a>Question 46 把数字翻译成字符串</h1><h1 id="Question-47-礼物的最大价值"><a href="#Question-47-礼物的最大价值" class="headerlink" title="Question 47 礼物的最大价值"></a>Question 47 礼物的最大价值</h1><h1 id="Question-48-最长不含重复字符的子字符串"><a href="#Question-48-最长不含重复字符的子字符串" class="headerlink" title="Question 48 最长不含重复字符的子字符串"></a>Question 48 最长不含重复字符的子字符串</h1><h1 id="Question-49-丑数"><a href="#Question-49-丑数" class="headerlink" title="Question 49 丑数"></a>Question 49 丑数</h1><h1 id="Question-50-第一个只出现一次的字符"><a href="#Question-50-第一个只出现一次的字符" class="headerlink" title="Question 50 第一个只出现一次的字符"></a>Question 50 第一个只出现一次的字符</h1><h1 id="Question-51-数组中的逆序对"><a href="#Question-51-数组中的逆序对" class="headerlink" title="Question 51 数组中的逆序对"></a>Question 51 数组中的逆序对</h1><h1 id="Question-52-两个链表的第一个公共节点"><a href="#Question-52-两个链表的第一个公共节点" class="headerlink" title="Question 52 两个链表的第一个公共节点"></a>Question 52 两个链表的第一个公共节点</h1><h1 id="Question-53-在排序数组中查找数字"><a href="#Question-53-在排序数组中查找数字" class="headerlink" title="Question 53 在排序数组中查找数字"></a>Question 53 在排序数组中查找数字</h1><h1 id="Question-54-二叉搜索树的第-k-大节点"><a href="#Question-54-二叉搜索树的第-k-大节点" class="headerlink" title="Question 54 二叉搜索树的第 k 大节点"></a>Question 54 二叉搜索树的第 k 大节点</h1><h1 id="Question-55-二叉树的深度"><a href="#Question-55-二叉树的深度" class="headerlink" title="Question 55 二叉树的深度"></a>Question 55 二叉树的深度</h1><h1 id="Question-56-数组中数字出现的次数"><a href="#Question-56-数组中数字出现的次数" class="headerlink" title="Question 56 数组中数字出现的次数"></a>Question 56 数组中数字出现的次数</h1><h1 id="Question-57-和为-s-的数字"><a href="#Question-57-和为-s-的数字" class="headerlink" title="Question 57 和为 s 的数字"></a>Question 57 和为 s 的数字</h1><h1 id="Question-58-翻转字符串"><a href="#Question-58-翻转字符串" class="headerlink" title="Question 58 翻转字符串"></a>Question 58 翻转字符串</h1><h1 id="Question-59-队列的最大值"><a href="#Question-59-队列的最大值" class="headerlink" title="Question 59 队列的最大值"></a>Question 59 队列的最大值</h1><h1 id="Question-60-n-个骰子的点数"><a href="#Question-60-n-个骰子的点数" class="headerlink" title="Question 60 n 个骰子的点数"></a>Question 60 n 个骰子的点数</h1><h1 id="Question-61-扑克牌中的顺子"><a href="#Question-61-扑克牌中的顺子" class="headerlink" title="Question 61 扑克牌中的顺子"></a>Question 61 扑克牌中的顺子</h1><h1 id="Question-62-圆圈中最后剩下的数字"><a href="#Question-62-圆圈中最后剩下的数字" class="headerlink" title="Question 62 圆圈中最后剩下的数字"></a>Question 62 圆圈中最后剩下的数字</h1><h1 id="Question-63-股票的最大利润"><a href="#Question-63-股票的最大利润" class="headerlink" title="Question 63 股票的最大利润"></a>Question 63 股票的最大利润</h1><h1 id="Question-64-求-1-2-…-n"><a href="#Question-64-求-1-2-…-n" class="headerlink" title="Question 64 求 1+2+…+n"></a>Question 64 求 1+2+…+n</h1><h1 id="Question-65-不用加减乘除法做加法"><a href="#Question-65-不用加减乘除法做加法" class="headerlink" title="Question 65 不用加减乘除法做加法"></a>Question 65 不用加减乘除法做加法</h1><h1 id="Question-66-构建乘积数组"><a href="#Question-66-构建乘积数组" class="headerlink" title="Question 66 构建乘积数组"></a>Question 66 构建乘积数组</h1><h1 id="Question-67-把字符串转换成整数"><a href="#Question-67-把字符串转换成整数" class="headerlink" title="Question 67 把字符串转换成整数"></a>Question 67 把字符串转换成整数</h1><h1 id="Question-68-树中两个节点的最低公共祖先"><a href="#Question-68-树中两个节点的最低公共祖先" class="headerlink" title="Question 68 树中两个节点的最低公共祖先"></a>Question 68 树中两个节点的最低公共祖先</h1><div id="paginator"></div></div><div id="post-footer"><hr><a href="/post/e255a10a/">← Prev 计算机网络</a><span style="color: #fe2"> | </span><a href="/post/b767a02b/">深度学习500问 03 Next →</a><hr></div><div id="bottom-btn"><a id="to-index" href="#post-index" title="index">≡</a><a id="to-top" href="#post-title" title="to top">∧</a></div><div id="Valine"></div><script>new Valine({
- el: '#Valine'
- , appId: ''
- , appKey: ''
- , placeholder: '此条评论委托企鹅物流发送'
-})</script></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://cdn.jsdelivr.net/gh/Sparklesyo/Collections/img/FNnex.png" alt="Logo"></a><h1 id="Dr"><a href="/"> Dr.斯帕蔻</a></h1><section id="total"><a id="total-archives" href="/archives"><span class="total-title">Archives Total:</span><span class="total-number">28</span></a><div id="total-tags"><span class="total-title">Tags:</span><span class="total-number">19</span></div><div id="total-categories"><span class="total-title">Categories:</span><span class="total-number">16</span></div></section></div><div id="aside-block"><h1>INDEX</h1><div id="post-index"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-01-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">Question 01 赋值运算符函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-02-%E5%AE%9E%E7%8E%B0-Singleton-%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">Question 02 实现 Singleton 模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-03-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97"><span class="toc-number">3.</span> <span class="toc-text">Question 03 数组中重复的数字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-04-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="toc-number">4.</span> <span class="toc-text">Question 04 二维数组中的查找</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-05-%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC"><span class="toc-number">5.</span> <span class="toc-text">Question 05 替换空格</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-06-%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8"><span class="toc-number">6.</span> <span class="toc-text">Question 06 从尾到头打印链表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-07-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">7.</span> <span class="toc-text">Question 07 重建二叉树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-08-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E8%8A%82%E7%82%B9"><span class="toc-number">8.</span> <span class="toc-text">Question 08 二叉树的下一个节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-09-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97"><span class="toc-number">9.</span> <span class="toc-text">Question 09 用两个栈实现队列</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-10-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97"><span class="toc-number">10.</span> <span class="toc-text">Question 10 斐波那契数列</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-11-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97"><span class="toc-number">11.</span> <span class="toc-text">Question 11 旋转数组中的最小数字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-12-%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="toc-number">12.</span> <span class="toc-text">Question 12 矩阵中的路径</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-13-%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4"><span class="toc-number">13.</span> <span class="toc-text">Question 13 机器人的运动范围</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-14-%E5%89%AA%E7%BB%B3%E5%AD%90"><span class="toc-number">14.</span> <span class="toc-text">Question 14 剪绳子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-15-%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD-1-%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="toc-number">15.</span> <span class="toc-text">Question 15 二进制中 1 的个数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-16-%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9"><span class="toc-number">16.</span> <span class="toc-text">Question 16 数值的整数次方</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-17-%E6%89%93%E5%8D%B0%E4%BB%8E-1-%E5%88%B0%E6%9C%80%E5%A4%A7%E7%9A%84-n-%E4%B8%AA%E6%95%B0"><span class="toc-number">17.</span> <span class="toc-text">Question 17 打印从 1 到最大的 n 个数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-18-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9"><span class="toc-number">18.</span> <span class="toc-text">Question 18 删除链表中的节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-19-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D"><span class="toc-number">19.</span> <span class="toc-text">Question 19 正则表达式匹配</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-20-%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">20.</span> <span class="toc-text">Question 20 表示数值的字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-21-%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2"><span class="toc-number">21.</span> <span class="toc-text">Question 21 调整数组顺序使奇数位于偶数前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-22-%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%AC-k-%E4%B8%AA%E8%8A%82%E7%82%B9"><span class="toc-number">22.</span> <span class="toc-text">Question 22 链表中倒数第 k 个节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-23-%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%8E%AF%E7%9A%84%E5%85%A5%E5%8F%A3%E8%8A%82%E7%82%B9"><span class="toc-number">23.</span> <span class="toc-text">Question 23 链表中环的入口节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-24-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8"><span class="toc-number">24.</span> <span class="toc-text">Question 24 反转链表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-25-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%8E%92%E5%BA%8F%E7%9A%84%E9%93%BE%E8%A1%A8"><span class="toc-number">25.</span> <span class="toc-text">Question 25 合并两个排序的链表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-26-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84"><span class="toc-number">26.</span> <span class="toc-text">Question 26 树的子结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-27-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F"><span class="toc-number">27.</span> <span class="toc-text">Question 27 二叉树的镜像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-28-%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">28.</span> <span class="toc-text">Question 28 对称的二叉树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5"><span class="toc-number">29.</span> <span class="toc-text">Question 29 顺时针打印矩阵</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-30-%E5%8C%85%E5%90%AB-min-%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88"><span class="toc-number">30.</span> <span class="toc-text">Question 30 包含 min 函数的栈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-31-%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97"><span class="toc-number">31.</span> <span class="toc-text">Question 31 栈的压入、弹出序列</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">32.</span> <span class="toc-text">Question 32 从上到下打印二叉树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-33-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97"><span class="toc-number">33.</span> <span class="toc-text">Question 33 二叉搜索树的后序遍历序列</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-34-%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%BD%8D%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="toc-number">34.</span> <span class="toc-text">Question 34 二叉树中和位某一值的路径</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-35-%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6"><span class="toc-number">35.</span> <span class="toc-text">Question 35 复杂链表的复制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-36-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8"><span class="toc-number">36.</span> <span class="toc-text">Question 36 二叉搜索树与双向链表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-37-%E5%BA%8F%E5%88%97%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">37.</span> <span class="toc-text">Question 37 序列化二叉树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-38-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97"><span class="toc-number">38.</span> <span class="toc-text">Question 38 字符串的排列</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-39-%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E4%B8%80%E5%8D%8A%E7%9A%84%E6%95%B0%E5%AD%97"><span class="toc-number">39.</span> <span class="toc-text">Question 39 数组中出现次数超过一半的数字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-40-%E6%9C%80%E5%B0%8F%E7%9A%84-k-%E4%B8%AA%E6%95%B0"><span class="toc-number">40.</span> <span class="toc-text">Question 40 最小的 k 个数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-41-%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0"><span class="toc-number">41.</span> <span class="toc-text">Question 41 数据流中的中位数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-42-%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C"><span class="toc-number">42.</span> <span class="toc-text">Question 42 连续子数组的最大和</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-43-1-n-%E6%95%B4%E6%95%B0%E4%B8%AD-1-%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0"><span class="toc-number">43.</span> <span class="toc-text">Question 43 1~n 整数中 1 出现的次数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-44-%E6%95%B0%E5%AD%97%E5%BA%8F%E5%88%97%E4%B8%AD%E6%9F%90%E4%B8%80%E4%BD%8D%E7%9A%84%E4%B8%BB%E5%AD%90"><span class="toc-number">44.</span> <span class="toc-text">Question 44 数字序列中某一位的主子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-45-%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0"><span class="toc-number">45.</span> <span class="toc-text">Question 45 把数组排成最小的数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-46-%E6%8A%8A%E6%95%B0%E5%AD%97%E7%BF%BB%E8%AF%91%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">46.</span> <span class="toc-text">Question 46 把数字翻译成字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-47-%E7%A4%BC%E7%89%A9%E7%9A%84%E6%9C%80%E5%A4%A7%E4%BB%B7%E5%80%BC"><span class="toc-number">47.</span> <span class="toc-text">Question 47 礼物的最大价值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-48-%E6%9C%80%E9%95%BF%E4%B8%8D%E5%90%AB%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">48.</span> <span class="toc-text">Question 48 最长不含重复字符的子字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-49-%E4%B8%91%E6%95%B0"><span class="toc-number">49.</span> <span class="toc-text">Question 49 丑数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-50-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6"><span class="toc-number">50.</span> <span class="toc-text">Question 50 第一个只出现一次的字符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-51-%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%80%86%E5%BA%8F%E5%AF%B9"><span class="toc-number">51.</span> <span class="toc-text">Question 51 数组中的逆序对</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-52-%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E8%8A%82%E7%82%B9"><span class="toc-number">52.</span> <span class="toc-text">Question 52 两个链表的第一个公共节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-53-%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E6%95%B0%E5%AD%97"><span class="toc-number">53.</span> <span class="toc-text">Question 53 在排序数组中查找数字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-54-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E7%AC%AC-k-%E5%A4%A7%E8%8A%82%E7%82%B9"><span class="toc-number">54.</span> <span class="toc-text">Question 54 二叉搜索树的第 k 大节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-55-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6"><span class="toc-number">55.</span> <span class="toc-text">Question 55 二叉树的深度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-56-%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0"><span class="toc-number">56.</span> <span class="toc-text">Question 56 数组中数字出现的次数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-57-%E5%92%8C%E4%B8%BA-s-%E7%9A%84%E6%95%B0%E5%AD%97"><span class="toc-number">57.</span> <span class="toc-text">Question 57 和为 s 的数字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-58-%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">58.</span> <span class="toc-text">Question 58 翻转字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-59-%E9%98%9F%E5%88%97%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC"><span class="toc-number">59.</span> <span class="toc-text">Question 59 队列的最大值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-60-n-%E4%B8%AA%E9%AA%B0%E5%AD%90%E7%9A%84%E7%82%B9%E6%95%B0"><span class="toc-number">60.</span> <span class="toc-text">Question 60 n 个骰子的点数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-61-%E6%89%91%E5%85%8B%E7%89%8C%E4%B8%AD%E7%9A%84%E9%A1%BA%E5%AD%90"><span class="toc-number">61.</span> <span class="toc-text">Question 61 扑克牌中的顺子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-62-%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0%E5%AD%97"><span class="toc-number">62.</span> <span class="toc-text">Question 62 圆圈中最后剩下的数字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-63-%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E5%A4%A7%E5%88%A9%E6%B6%A6"><span class="toc-number">63.</span> <span class="toc-text">Question 63 股票的最大利润</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-64-%E6%B1%82-1-2-%E2%80%A6-n"><span class="toc-number">64.</span> <span class="toc-text">Question 64 求 1+2+…+n</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-65-%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E6%B3%95%E5%81%9A%E5%8A%A0%E6%B3%95"><span class="toc-number">65.</span> <span class="toc-text">Question 65 不用加减乘除法做加法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-66-%E6%9E%84%E5%BB%BA%E4%B9%98%E7%A7%AF%E6%95%B0%E7%BB%84"><span class="toc-number">66.</span> <span class="toc-text">Question 66 构建乘积数组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-67-%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0"><span class="toc-number">67.</span> <span class="toc-text">Question 67 把字符串转换成整数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-68-%E6%A0%91%E4%B8%AD%E4%B8%A4%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E6%9C%80%E4%BD%8E%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88"><span class="toc-number">68.</span> <span class="toc-text">Question 68 树中两个节点的最低公共祖先</span></a></li></ol></div></div><footer><nobr><span class="text-title">©</span><span class="text-content">2021</span></nobr><wbr><nobr><span class="text-title">ICP</span><span class="text-content"></span></nobr><wbr><wbr><nobr>published with&nbsp;<a target="_blank" rel="noopener" href="http://hexo.io">Hexo&nbsp;</a></nobr><wbr><nobr>Theme&nbsp;<a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight&nbsp;</a></nobr><wbr><nobr>by&nbsp;<a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/arknights.js"></script><script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>剑指 Offer | Sparkle</title>
+  <meta name="keywords" content=" 算法 , Leetcode ">
+  <meta name="description" content="剑指 Offer | Sparkle">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://example.com/about/index.html">
+<meta property="og:site_name" content="Sparkle">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-10-12T20:16:38.000Z">
+<meta property="article:modified_time" content="2021-10-12T20:16:38.263Z">
+<meta property="article:author" content="斯帕蔻">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>斯帕蔻</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/yelog"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="facebook"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-facebook"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+            <a title="instagram"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-instagram"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="reddit"
+               href="https://www.reddit.com/user/yelog/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-reddit"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="weibo"
+               href="http://weibo.com/u/2307534817"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-weibo"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="jianshu"
+               href="https://www.jianshu.com/u/ff56736de7cf"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-jianshu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="zhihu"
+               href="https://www.zhihu.com/people/jaytp/activities"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-zhihu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="oschina"
+               href="https://my.oschina.net/yelog"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-oschina"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:jaytp@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="kugou"
+               href="https://www.kugou.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-kugou"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/#/user/home?id=88151013"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(28)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="机器学习">
+                        
+                        机器学习
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="基础知识">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        基础知识
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="基础知识<--->计算机科学">
+                                        
+                                        计算机科学
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="基础知识<--->英语">
+                                        
+                                        英语
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="论文">
+                        
+                        论文
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="漫画">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        漫画
+                        <small>(13)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="漫画<--->猫耳メイドさんとお嬢様">
+                                        
+                                        猫耳メイドさんとお嬢様
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="漫画<--->ありおと/百日百合">
+                                        
+                                        ありおと/百日百合
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="漫画<--->メイドさんを誘惑するお嬢様">
+                                        
+                                        メイドさんを誘惑するお嬢様
+                                        
+                                            <small>(8
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="漫画<--->わたなれ">
+                                        
+                                        わたなれ
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="书籍">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        书籍
+                        <small>(6)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="书籍<--->剑指 Offer">
+                                        
+                                        剑指 Offer
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="书籍<--->深度强化学习落地指南">
+                                        
+                                        深度强化学习落地指南
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="书籍<--->深度强化学习学术前沿与实战应用">
+                                        
+                                        深度强化学习学术前沿与实战应用
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="书籍<--->深度学习 500 问">
+                                        
+                                        深度学习 500 问
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="碎片知识">
+                        
+                        碎片知识
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="28">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>百合</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>分类算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>机器学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计算机基础</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>猫娘</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>女仆</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>强化学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>深度学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>英语</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>游戏</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>游戏开发</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>转载</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Bilibili</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JK</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Leetcode</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>R18</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ざんか</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All 机器学习 "
+           href="/post/280b588e/"
+           data-tag="机器学习,分类算法"
+           data-author="" >
+            <span class="post-title" title="支持向量机">支持向量机</span>
+            <span class="post-date" title="2021-10-19 02:31:22">2021/10/19</span>
+        </a>
+        
+        <a  class="All 漫画 メイドさんを誘惑するお嬢様 "
+           href="/post/41fe5a2c/"
+           data-tag="百合,女仆,ざんか,R18"
+           data-author="" >
+            <span class="post-title" title="メイドさんを誘惑するお嬢様 08">メイドさんを誘惑するお嬢様 08</span>
+            <span class="post-date" title="2021-10-16 20:29:24">2021/10/16</span>
+        </a>
+        
+        <a  class="All 碎片知识 "
+           href="/post/321a27c2/"
+           data-tag="Python,Bilibili"
+           data-author="" >
+            <span class="post-title" title="不正经风格讲解编程知识">不正经风格讲解编程知识</span>
+            <span class="post-date" title="2021-10-16 03:05:20">2021/10/16</span>
+        </a>
+        
+        <a  class="All 碎片知识 "
+           href="/post/3bfb7435/"
+           data-tag="Bilibili,游戏开发"
+           data-author="" >
+            <span class="post-title" title="超简短的独立游戏开发教学">超简短的独立游戏开发教学</span>
+            <span class="post-date" title="2021-10-16 02:01:08">2021/10/16</span>
+        </a>
+        
+        <a  class="All 漫画 ありおと/百日百合 "
+           href="/post/9415f108/"
+           data-tag="百合,转载,JK"
+           data-author="" >
+            <span class="post-title" title="女同士とかありえないでしょと言い張る女の子を、百日間で徹底的に落とす百合のお話 01">女同士とかありえないでしょと言い張る女の子を、百日間で徹底的に落とす百合のお話 01</span>
+            <span class="post-date" title="2021-10-16 00:47:24">2021/10/16</span>
+        </a>
+        
+        <a  class="All 基础知识 计算机科学 "
+           href="/post/79666db/"
+           data-tag="计算机基础"
+           data-author="" >
+            <span class="post-title" title="数据结构">数据结构</span>
+            <span class="post-date" title="2021-10-15 01:54:44">2021/10/15</span>
+        </a>
+        
+        <a  class="All 基础知识 计算机科学 "
+           href="/post/d04bd5bc/"
+           data-tag="计算机基础"
+           data-author="" >
+            <span class="post-title" title="操作系统">操作系统</span>
+            <span class="post-date" title="2021-10-15 01:51:15">2021/10/15</span>
+        </a>
+        
+        <a  class="All 书籍 深度强化学习落地指南 "
+           href="/post/ead94b8/"
+           data-tag="深度学习,强化学习"
+           data-author="" >
+            <span class="post-title" title="深度强化学习落地指南 05">深度强化学习落地指南 05</span>
+            <span class="post-date" title="2021-10-15 01:17:12">2021/10/15</span>
+        </a>
+        
+        <a  class="All 基础知识 计算机科学 "
+           href="/post/e255a10a/"
+           data-tag="计算机基础"
+           data-author="" >
+            <span class="post-title" title="计算机网络">计算机网络</span>
+            <span class="post-date" title="2021-10-14 01:24:50">2021/10/14</span>
+        </a>
+        
+        <a  class="All 书籍 剑指 Offer "
+           href="/post/dd921d98/"
+           data-tag="算法,Leetcode"
+           data-author="" >
+            <span class="post-title" title="剑指 Offer">剑指 Offer</span>
+            <span class="post-date" title="2021-10-14 01:08:19">2021/10/14</span>
+        </a>
+        
+        <a  class="All 书籍 深度学习 500 问 "
+           href="/post/b767a02b/"
+           data-tag="深度学习"
+           data-author="" >
+            <span class="post-title" title="深度学习500问 03">深度学习500问 03</span>
+            <span class="post-date" title="2021-10-13 22:53:29">2021/10/13</span>
+        </a>
+        
+        <a  class="All 书籍 深度强化学习学术前沿与实战应用 "
+           href="/post/2b90e808/"
+           data-tag="深度学习,强化学习"
+           data-author="" >
+            <span class="post-title" title="深度强化学习学术前沿与实战应用">深度强化学习学术前沿与实战应用</span>
+            <span class="post-date" title="2021-10-13 22:51:29">2021/10/13</span>
+        </a>
+        
+        <a  class="All 基础知识 英语 "
+           href="/post/81c4e30a/"
+           data-tag="英语"
+           data-author="" >
+            <span class="post-title" title="英语语法">英语语法</span>
+            <span class="post-date" title="2021-10-13 22:50:13">2021/10/13</span>
+        </a>
+        
+        <a  class="All 书籍 深度学习 500 问 "
+           href="/post/c06090bd/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="深度学习500问 02">深度学习500问 02</span>
+            <span class="post-date" title="2021-10-13 22:31:10">2021/10/13</span>
+        </a>
+        
+        <a  class="All 书籍 深度强化学习落地指南 "
+           href="/post/27392ea8/"
+           data-tag="深度学习,强化学习"
+           data-author="" >
+            <span class="post-title" title="深度强化学习落地指南 01">深度强化学习落地指南 01</span>
+            <span class="post-date" title="2021-10-13 19:42:00">2021/10/13</span>
+        </a>
+        
+        <a  class="All 漫画 メイドさんを誘惑するお嬢様 "
+           href="/post/d14147bd/"
+           data-tag="百合,女仆,ざんか,R18"
+           data-author="" >
+            <span class="post-title" title="メイドさんを誘惑するお嬢様 07">メイドさんを誘惑するお嬢様 07</span>
+            <span class="post-date" title="2021-10-10 20:25:37">2021/10/10</span>
+        </a>
+        
+        <a  class="All 漫画 メイドさんを誘惑するお嬢様 "
+           href="/post/a646772b/"
+           data-tag="百合,女仆,ざんか"
+           data-author="" >
+            <span class="post-title" title="メイドさんを誘惑するお嬢様 06">メイドさんを誘惑するお嬢様 06</span>
+            <span class="post-date" title="2021-09-29 12:57:57">2021/09/29</span>
+        </a>
+        
+        <a  class="All 漫画 メイドさんを誘惑するお嬢様 "
+           href="/post/3f4f2691/"
+           data-tag="百合,女仆,ざんか"
+           data-author="" >
+            <span class="post-title" title="メイドさんを誘惑するお嬢様 05">メイドさんを誘惑するお嬢様 05</span>
+            <span class="post-date" title="2021-09-19 22:26:48">2021/09/19</span>
+        </a>
+        
+        <a  class="All 漫画 メイドさんを誘惑するお嬢様 "
+           href="/post/48481607/"
+           data-tag="百合,女仆,ざんか"
+           data-author="" >
+            <span class="post-title" title="メイドさんを誘惑するお嬢様 04">メイドさんを誘惑するお嬢様 04</span>
+            <span class="post-date" title="2021-09-08 12:58:35">2021/09/08</span>
+        </a>
+        
+        <a  class="All 漫画 メイドさんを誘惑するお嬢様 "
+           href="/post/a12bb332/"
+           data-tag="百合,女仆,ざんか"
+           data-author="" >
+            <span class="post-title" title="メイドさんを誘惑するお嬢様 02">メイドさんを誘惑するお嬢様 02</span>
+            <span class="post-date" title="2021-08-25 12:00:00">2021/08/25</span>
+        </a>
+        
+        <a  class="All 漫画 メイドさんを誘惑するお嬢様 "
+           href="/post/6b612aa6/"
+           data-tag="百合,女仆,ざんか"
+           data-author="" >
+            <span class="post-title" title="メイドさんを誘惑するお嬢様 03">メイドさんを誘惑するお嬢様 03</span>
+            <span class="post-date" title="2021-08-22 18:41:48">2021/08/22</span>
+        </a>
+        
+        <a  class="All 漫画 メイドさんを誘惑するお嬢様 "
+           href="/post/3822e288/"
+           data-tag="百合,女仆,ざんか"
+           data-author="" >
+            <span class="post-title" title="メイドさんを誘惑するお嬢様 01">メイドさんを誘惑するお嬢様 01</span>
+            <span class="post-date" title="2021-08-07 12:00:00">2021/08/07</span>
+        </a>
+        
+        <a  class="All 论文 "
+           href="/post/998d1b3d/"
+           data-tag="强化学习,游戏"
+           data-author="" >
+            <span class="post-title" title="Towards Playing Full MOBA Games with Deep Reinforcement Learning">Towards Playing Full MOBA Games with Deep Reinforcement Learning</span>
+            <span class="post-date" title="2020-11-25 12:52:33">2020/11/25</span>
+        </a>
+        
+        <a  class="All 漫画 わたなれ "
+           href="/post/f0c2be44/"
+           data-tag="百合,转载,JK"
+           data-author="" >
+            <span class="post-title" title="わたしが恋人になれるわけないじゃん、ムリムリ！03">わたしが恋人になれるわけないじゃん、ムリムリ！03</span>
+            <span class="post-date" title="2020-05-29 23:36:42">2020/05/29</span>
+        </a>
+        
+        <a  class="All 漫画 わたなれ "
+           href="/post/87c58ed2/"
+           data-tag="百合,转载,JK"
+           data-author="" >
+            <span class="post-title" title="わたしが恋人になれるわけないじゃん、ムリムリ！02">わたしが恋人になれるわけないじゃん、ムリムリ！02</span>
+            <span class="post-date" title="2020-05-22 22:36:42">2020/05/22</span>
+        </a>
+        
+        <a  class="All 漫画 わたなれ "
+           href="/post/1eccdf68/"
+           data-tag="百合,转载,JK"
+           data-author="" >
+            <span class="post-title" title="わたしが恋人になれるわけないじゃん、ムリムリ！01">わたしが恋人になれるわけないじゃん、ムリムリ！01</span>
+            <span class="post-date" title="2020-05-15 17:36:42">2020/05/15</span>
+        </a>
+        
+        <a  class="All 漫画 猫耳メイドさんとお嬢様 "
+           href="/post/4a455a3d/"
+           data-tag="百合,女仆,ざんか,猫娘"
+           data-author="" >
+            <span class="post-title" title="猫耳メイドさんとお嬢様 01">猫耳メイドさんとお嬢様 01</span>
+            <span class="post-date" title="2020-05-14 20:00:00">2020/05/14</span>
+        </a>
+        
+        <a  class="All 论文 "
+           href="/post/ebdb548e/"
+           data-tag="强化学习,游戏"
+           data-author="" >
+            <span class="post-title" title="Mastering Complex Control in MOBA Games with Deep Reinforcement Learning">Mastering Complex Control in MOBA Games with Deep Reinforcement Learning</span>
+            <span class="post-date" title="2019-12-20 09:56:50">2019/12/20</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-剑指Offer" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">剑指 Offer</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="书籍">书籍</a> > 
+            
+            <a  data-rel="书籍&lt;---&gt;剑指 Offer">剑指 Offer</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color3">算法</a>
+            
+            <a class="color4">Leetcode</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2021-10-18 01:02:07'>2021-10-14 01:08</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-01-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E5%87%BD%E6%95%B0"><span class="toc-text">Question 01 赋值运算符函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-02-%E5%AE%9E%E7%8E%B0-Singleton-%E6%A8%A1%E5%BC%8F"><span class="toc-text">Question 02 实现 Singleton 模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-03-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97"><span class="toc-text">Question 03 数组中重复的数字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-04-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="toc-text">Question 04 二维数组中的查找</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-05-%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC"><span class="toc-text">Question 05 替换空格</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-06-%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8"><span class="toc-text">Question 06 从尾到头打印链表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-07-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-text">Question 07 重建二叉树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-08-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E8%8A%82%E7%82%B9"><span class="toc-text">Question 08 二叉树的下一个节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-09-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97"><span class="toc-text">Question 09 用两个栈实现队列</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-10-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97"><span class="toc-text">Question 10 斐波那契数列</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-11-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97"><span class="toc-text">Question 11 旋转数组中的最小数字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-12-%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="toc-text">Question 12 矩阵中的路径</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-13-%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4"><span class="toc-text">Question 13 机器人的运动范围</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-14-%E5%89%AA%E7%BB%B3%E5%AD%90"><span class="toc-text">Question 14 剪绳子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-15-%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD-1-%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="toc-text">Question 15 二进制中 1 的个数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-16-%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9"><span class="toc-text">Question 16 数值的整数次方</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-17-%E6%89%93%E5%8D%B0%E4%BB%8E-1-%E5%88%B0%E6%9C%80%E5%A4%A7%E7%9A%84-n-%E4%B8%AA%E6%95%B0"><span class="toc-text">Question 17 打印从 1 到最大的 n 个数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-18-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9"><span class="toc-text">Question 18 删除链表中的节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-19-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D"><span class="toc-text">Question 19 正则表达式匹配</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-20-%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">Question 20 表示数值的字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-21-%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2"><span class="toc-text">Question 21 调整数组顺序使奇数位于偶数前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-22-%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%AC-k-%E4%B8%AA%E8%8A%82%E7%82%B9"><span class="toc-text">Question 22 链表中倒数第 k 个节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-23-%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%8E%AF%E7%9A%84%E5%85%A5%E5%8F%A3%E8%8A%82%E7%82%B9"><span class="toc-text">Question 23 链表中环的入口节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-24-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8"><span class="toc-text">Question 24 反转链表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-25-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%8E%92%E5%BA%8F%E7%9A%84%E9%93%BE%E8%A1%A8"><span class="toc-text">Question 25 合并两个排序的链表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-26-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84"><span class="toc-text">Question 26 树的子结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-27-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F"><span class="toc-text">Question 27 二叉树的镜像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-28-%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-text">Question 28 对称的二叉树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5"><span class="toc-text">Question 29 顺时针打印矩阵</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-30-%E5%8C%85%E5%90%AB-min-%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88"><span class="toc-text">Question 30 包含 min 函数的栈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-31-%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97"><span class="toc-text">Question 31 栈的压入、弹出序列</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-text">Question 32 从上到下打印二叉树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-33-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97"><span class="toc-text">Question 33 二叉搜索树的后序遍历序列</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-34-%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%BD%8D%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="toc-text">Question 34 二叉树中和位某一值的路径</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-35-%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6"><span class="toc-text">Question 35 复杂链表的复制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-36-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8"><span class="toc-text">Question 36 二叉搜索树与双向链表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-37-%E5%BA%8F%E5%88%97%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-text">Question 37 序列化二叉树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-38-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97"><span class="toc-text">Question 38 字符串的排列</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-39-%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E4%B8%80%E5%8D%8A%E7%9A%84%E6%95%B0%E5%AD%97"><span class="toc-text">Question 39 数组中出现次数超过一半的数字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-40-%E6%9C%80%E5%B0%8F%E7%9A%84-k-%E4%B8%AA%E6%95%B0"><span class="toc-text">Question 40 最小的 k 个数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-41-%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0"><span class="toc-text">Question 41 数据流中的中位数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-42-%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C"><span class="toc-text">Question 42 连续子数组的最大和</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-43-1-n-%E6%95%B4%E6%95%B0%E4%B8%AD-1-%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0"><span class="toc-text">Question 43 1~n 整数中 1 出现的次数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-44-%E6%95%B0%E5%AD%97%E5%BA%8F%E5%88%97%E4%B8%AD%E6%9F%90%E4%B8%80%E4%BD%8D%E7%9A%84%E4%B8%BB%E5%AD%90"><span class="toc-text">Question 44 数字序列中某一位的主子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-45-%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0"><span class="toc-text">Question 45 把数组排成最小的数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-46-%E6%8A%8A%E6%95%B0%E5%AD%97%E7%BF%BB%E8%AF%91%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">Question 46 把数字翻译成字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-47-%E7%A4%BC%E7%89%A9%E7%9A%84%E6%9C%80%E5%A4%A7%E4%BB%B7%E5%80%BC"><span class="toc-text">Question 47 礼物的最大价值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-48-%E6%9C%80%E9%95%BF%E4%B8%8D%E5%90%AB%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">Question 48 最长不含重复字符的子字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-49-%E4%B8%91%E6%95%B0"><span class="toc-text">Question 49 丑数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-50-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6"><span class="toc-text">Question 50 第一个只出现一次的字符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-51-%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%80%86%E5%BA%8F%E5%AF%B9"><span class="toc-text">Question 51 数组中的逆序对</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-52-%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E8%8A%82%E7%82%B9"><span class="toc-text">Question 52 两个链表的第一个公共节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-53-%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E6%95%B0%E5%AD%97"><span class="toc-text">Question 53 在排序数组中查找数字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-54-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E7%AC%AC-k-%E5%A4%A7%E8%8A%82%E7%82%B9"><span class="toc-text">Question 54 二叉搜索树的第 k 大节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-55-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6"><span class="toc-text">Question 55 二叉树的深度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-56-%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0"><span class="toc-text">Question 56 数组中数字出现的次数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-57-%E5%92%8C%E4%B8%BA-s-%E7%9A%84%E6%95%B0%E5%AD%97"><span class="toc-text">Question 57 和为 s 的数字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-58-%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">Question 58 翻转字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-59-%E9%98%9F%E5%88%97%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC"><span class="toc-text">Question 59 队列的最大值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-60-n-%E4%B8%AA%E9%AA%B0%E5%AD%90%E7%9A%84%E7%82%B9%E6%95%B0"><span class="toc-text">Question 60 n 个骰子的点数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-61-%E6%89%91%E5%85%8B%E7%89%8C%E4%B8%AD%E7%9A%84%E9%A1%BA%E5%AD%90"><span class="toc-text">Question 61 扑克牌中的顺子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-62-%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0%E5%AD%97"><span class="toc-text">Question 62 圆圈中最后剩下的数字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-63-%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E5%A4%A7%E5%88%A9%E6%B6%A6"><span class="toc-text">Question 63 股票的最大利润</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-64-%E6%B1%82-1-2-%E2%80%A6-n"><span class="toc-text">Question 64 求 1+2+…+n</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-65-%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E6%B3%95%E5%81%9A%E5%8A%A0%E6%B3%95"><span class="toc-text">Question 65 不用加减乘除法做加法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-66-%E6%9E%84%E5%BB%BA%E4%B9%98%E7%A7%AF%E6%95%B0%E7%BB%84"><span class="toc-text">Question 66 构建乘积数组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-67-%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0"><span class="toc-text">Question 67 把字符串转换成整数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Question-68-%E6%A0%91%E4%B8%AD%E4%B8%A4%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E6%9C%80%E4%BD%8E%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88"><span class="toc-text">Question 68 树中两个节点的最低公共祖先</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <span id="more"></span>
+
+<h1 id="Question-01-赋值运算符函数"><a href="#Question-01-赋值运算符函数" class="headerlink" title="Question 01 赋值运算符函数"></a>Question 01 赋值运算符函数</h1><h1 id="Question-02-实现-Singleton-模式"><a href="#Question-02-实现-Singleton-模式" class="headerlink" title="Question 02 实现 Singleton 模式"></a>Question 02 实现 Singleton 模式</h1><h1 id="Question-03-数组中重复的数字"><a href="#Question-03-数组中重复的数字" class="headerlink" title="Question 03 数组中重复的数字"></a>Question 03 数组中重复的数字</h1><h1 id="Question-04-二维数组中的查找"><a href="#Question-04-二维数组中的查找" class="headerlink" title="Question 04 二维数组中的查找"></a>Question 04 二维数组中的查找</h1><h1 id="Question-05-替换空格"><a href="#Question-05-替换空格" class="headerlink" title="Question 05 替换空格"></a>Question 05 替换空格</h1><h1 id="Question-06-从尾到头打印链表"><a href="#Question-06-从尾到头打印链表" class="headerlink" title="Question 06 从尾到头打印链表"></a>Question 06 从尾到头打印链表</h1><h1 id="Question-07-重建二叉树"><a href="#Question-07-重建二叉树" class="headerlink" title="Question 07 重建二叉树"></a>Question 07 重建二叉树</h1><h1 id="Question-08-二叉树的下一个节点"><a href="#Question-08-二叉树的下一个节点" class="headerlink" title="Question 08 二叉树的下一个节点"></a>Question 08 二叉树的下一个节点</h1><h1 id="Question-09-用两个栈实现队列"><a href="#Question-09-用两个栈实现队列" class="headerlink" title="Question 09 用两个栈实现队列"></a>Question 09 用两个栈实现队列</h1><h1 id="Question-10-斐波那契数列"><a href="#Question-10-斐波那契数列" class="headerlink" title="Question 10 斐波那契数列"></a>Question 10 斐波那契数列</h1><h1 id="Question-11-旋转数组中的最小数字"><a href="#Question-11-旋转数组中的最小数字" class="headerlink" title="Question 11 旋转数组中的最小数字"></a>Question 11 旋转数组中的最小数字</h1><h1 id="Question-12-矩阵中的路径"><a href="#Question-12-矩阵中的路径" class="headerlink" title="Question 12 矩阵中的路径"></a>Question 12 矩阵中的路径</h1><h1 id="Question-13-机器人的运动范围"><a href="#Question-13-机器人的运动范围" class="headerlink" title="Question 13 机器人的运动范围"></a>Question 13 机器人的运动范围</h1><h1 id="Question-14-剪绳子"><a href="#Question-14-剪绳子" class="headerlink" title="Question 14 剪绳子"></a>Question 14 剪绳子</h1><h1 id="Question-15-二进制中-1-的个数"><a href="#Question-15-二进制中-1-的个数" class="headerlink" title="Question 15 二进制中 1 的个数"></a>Question 15 二进制中 1 的个数</h1><h1 id="Question-16-数值的整数次方"><a href="#Question-16-数值的整数次方" class="headerlink" title="Question 16 数值的整数次方"></a>Question 16 数值的整数次方</h1><h1 id="Question-17-打印从-1-到最大的-n-个数"><a href="#Question-17-打印从-1-到最大的-n-个数" class="headerlink" title="Question 17 打印从 1 到最大的 n 个数"></a>Question 17 打印从 1 到最大的 n 个数</h1><h1 id="Question-18-删除链表中的节点"><a href="#Question-18-删除链表中的节点" class="headerlink" title="Question 18 删除链表中的节点"></a>Question 18 删除链表中的节点</h1><h1 id="Question-19-正则表达式匹配"><a href="#Question-19-正则表达式匹配" class="headerlink" title="Question 19 正则表达式匹配"></a>Question 19 正则表达式匹配</h1><h1 id="Question-20-表示数值的字符串"><a href="#Question-20-表示数值的字符串" class="headerlink" title="Question 20 表示数值的字符串"></a>Question 20 表示数值的字符串</h1><h1 id="Question-21-调整数组顺序使奇数位于偶数前面"><a href="#Question-21-调整数组顺序使奇数位于偶数前面" class="headerlink" title="Question 21 调整数组顺序使奇数位于偶数前面"></a>Question 21 调整数组顺序使奇数位于偶数前面</h1><h1 id="Question-22-链表中倒数第-k-个节点"><a href="#Question-22-链表中倒数第-k-个节点" class="headerlink" title="Question 22 链表中倒数第 k 个节点"></a>Question 22 链表中倒数第 k 个节点</h1><h1 id="Question-23-链表中环的入口节点"><a href="#Question-23-链表中环的入口节点" class="headerlink" title="Question 23 链表中环的入口节点"></a>Question 23 链表中环的入口节点</h1><h1 id="Question-24-反转链表"><a href="#Question-24-反转链表" class="headerlink" title="Question 24 反转链表"></a>Question 24 反转链表</h1><h1 id="Question-25-合并两个排序的链表"><a href="#Question-25-合并两个排序的链表" class="headerlink" title="Question 25 合并两个排序的链表"></a>Question 25 合并两个排序的链表</h1><h1 id="Question-26-树的子结构"><a href="#Question-26-树的子结构" class="headerlink" title="Question 26 树的子结构"></a>Question 26 树的子结构</h1><h1 id="Question-27-二叉树的镜像"><a href="#Question-27-二叉树的镜像" class="headerlink" title="Question 27 二叉树的镜像"></a>Question 27 二叉树的镜像</h1><h1 id="Question-28-对称的二叉树"><a href="#Question-28-对称的二叉树" class="headerlink" title="Question 28 对称的二叉树"></a>Question 28 对称的二叉树</h1><h1 id="Question-29-顺时针打印矩阵"><a href="#Question-29-顺时针打印矩阵" class="headerlink" title="Question 29 顺时针打印矩阵"></a>Question 29 顺时针打印矩阵</h1><h1 id="Question-30-包含-min-函数的栈"><a href="#Question-30-包含-min-函数的栈" class="headerlink" title="Question 30 包含 min 函数的栈"></a>Question 30 包含 min 函数的栈</h1><h1 id="Question-31-栈的压入、弹出序列"><a href="#Question-31-栈的压入、弹出序列" class="headerlink" title="Question 31 栈的压入、弹出序列"></a>Question 31 栈的压入、弹出序列</h1><h1 id="Question-32-从上到下打印二叉树"><a href="#Question-32-从上到下打印二叉树" class="headerlink" title="Question 32 从上到下打印二叉树"></a>Question 32 从上到下打印二叉树</h1><h1 id="Question-33-二叉搜索树的后序遍历序列"><a href="#Question-33-二叉搜索树的后序遍历序列" class="headerlink" title="Question 33 二叉搜索树的后序遍历序列"></a>Question 33 二叉搜索树的后序遍历序列</h1><h1 id="Question-34-二叉树中和位某一值的路径"><a href="#Question-34-二叉树中和位某一值的路径" class="headerlink" title="Question 34 二叉树中和位某一值的路径"></a>Question 34 二叉树中和位某一值的路径</h1><h1 id="Question-35-复杂链表的复制"><a href="#Question-35-复杂链表的复制" class="headerlink" title="Question 35 复杂链表的复制"></a>Question 35 复杂链表的复制</h1><h1 id="Question-36-二叉搜索树与双向链表"><a href="#Question-36-二叉搜索树与双向链表" class="headerlink" title="Question 36 二叉搜索树与双向链表"></a>Question 36 二叉搜索树与双向链表</h1><h1 id="Question-37-序列化二叉树"><a href="#Question-37-序列化二叉树" class="headerlink" title="Question 37 序列化二叉树"></a>Question 37 序列化二叉树</h1><h1 id="Question-38-字符串的排列"><a href="#Question-38-字符串的排列" class="headerlink" title="Question 38 字符串的排列"></a>Question 38 字符串的排列</h1><h1 id="Question-39-数组中出现次数超过一半的数字"><a href="#Question-39-数组中出现次数超过一半的数字" class="headerlink" title="Question 39 数组中出现次数超过一半的数字"></a>Question 39 数组中出现次数超过一半的数字</h1><h1 id="Question-40-最小的-k-个数"><a href="#Question-40-最小的-k-个数" class="headerlink" title="Question 40 最小的 k 个数"></a>Question 40 最小的 k 个数</h1><h1 id="Question-41-数据流中的中位数"><a href="#Question-41-数据流中的中位数" class="headerlink" title="Question 41 数据流中的中位数"></a>Question 41 数据流中的中位数</h1><h1 id="Question-42-连续子数组的最大和"><a href="#Question-42-连续子数组的最大和" class="headerlink" title="Question 42 连续子数组的最大和"></a>Question 42 连续子数组的最大和</h1><h1 id="Question-43-1-n-整数中-1-出现的次数"><a href="#Question-43-1-n-整数中-1-出现的次数" class="headerlink" title="Question 43 1~n 整数中 1 出现的次数"></a>Question 43 1~n 整数中 1 出现的次数</h1><h1 id="Question-44-数字序列中某一位的主子"><a href="#Question-44-数字序列中某一位的主子" class="headerlink" title="Question 44 数字序列中某一位的主子"></a>Question 44 数字序列中某一位的主子</h1><h1 id="Question-45-把数组排成最小的数"><a href="#Question-45-把数组排成最小的数" class="headerlink" title="Question 45 把数组排成最小的数"></a>Question 45 把数组排成最小的数</h1><h1 id="Question-46-把数字翻译成字符串"><a href="#Question-46-把数字翻译成字符串" class="headerlink" title="Question 46 把数字翻译成字符串"></a>Question 46 把数字翻译成字符串</h1><h1 id="Question-47-礼物的最大价值"><a href="#Question-47-礼物的最大价值" class="headerlink" title="Question 47 礼物的最大价值"></a>Question 47 礼物的最大价值</h1><h1 id="Question-48-最长不含重复字符的子字符串"><a href="#Question-48-最长不含重复字符的子字符串" class="headerlink" title="Question 48 最长不含重复字符的子字符串"></a>Question 48 最长不含重复字符的子字符串</h1><h1 id="Question-49-丑数"><a href="#Question-49-丑数" class="headerlink" title="Question 49 丑数"></a>Question 49 丑数</h1><h1 id="Question-50-第一个只出现一次的字符"><a href="#Question-50-第一个只出现一次的字符" class="headerlink" title="Question 50 第一个只出现一次的字符"></a>Question 50 第一个只出现一次的字符</h1><h1 id="Question-51-数组中的逆序对"><a href="#Question-51-数组中的逆序对" class="headerlink" title="Question 51 数组中的逆序对"></a>Question 51 数组中的逆序对</h1><h1 id="Question-52-两个链表的第一个公共节点"><a href="#Question-52-两个链表的第一个公共节点" class="headerlink" title="Question 52 两个链表的第一个公共节点"></a>Question 52 两个链表的第一个公共节点</h1><h1 id="Question-53-在排序数组中查找数字"><a href="#Question-53-在排序数组中查找数字" class="headerlink" title="Question 53 在排序数组中查找数字"></a>Question 53 在排序数组中查找数字</h1><h1 id="Question-54-二叉搜索树的第-k-大节点"><a href="#Question-54-二叉搜索树的第-k-大节点" class="headerlink" title="Question 54 二叉搜索树的第 k 大节点"></a>Question 54 二叉搜索树的第 k 大节点</h1><h1 id="Question-55-二叉树的深度"><a href="#Question-55-二叉树的深度" class="headerlink" title="Question 55 二叉树的深度"></a>Question 55 二叉树的深度</h1><h1 id="Question-56-数组中数字出现的次数"><a href="#Question-56-数组中数字出现的次数" class="headerlink" title="Question 56 数组中数字出现的次数"></a>Question 56 数组中数字出现的次数</h1><h1 id="Question-57-和为-s-的数字"><a href="#Question-57-和为-s-的数字" class="headerlink" title="Question 57 和为 s 的数字"></a>Question 57 和为 s 的数字</h1><h1 id="Question-58-翻转字符串"><a href="#Question-58-翻转字符串" class="headerlink" title="Question 58 翻转字符串"></a>Question 58 翻转字符串</h1><h1 id="Question-59-队列的最大值"><a href="#Question-59-队列的最大值" class="headerlink" title="Question 59 队列的最大值"></a>Question 59 队列的最大值</h1><h1 id="Question-60-n-个骰子的点数"><a href="#Question-60-n-个骰子的点数" class="headerlink" title="Question 60 n 个骰子的点数"></a>Question 60 n 个骰子的点数</h1><h1 id="Question-61-扑克牌中的顺子"><a href="#Question-61-扑克牌中的顺子" class="headerlink" title="Question 61 扑克牌中的顺子"></a>Question 61 扑克牌中的顺子</h1><h1 id="Question-62-圆圈中最后剩下的数字"><a href="#Question-62-圆圈中最后剩下的数字" class="headerlink" title="Question 62 圆圈中最后剩下的数字"></a>Question 62 圆圈中最后剩下的数字</h1><h1 id="Question-63-股票的最大利润"><a href="#Question-63-股票的最大利润" class="headerlink" title="Question 63 股票的最大利润"></a>Question 63 股票的最大利润</h1><h1 id="Question-64-求-1-2-…-n"><a href="#Question-64-求-1-2-…-n" class="headerlink" title="Question 64 求 1+2+…+n"></a>Question 64 求 1+2+…+n</h1><h1 id="Question-65-不用加减乘除法做加法"><a href="#Question-65-不用加减乘除法做加法" class="headerlink" title="Question 65 不用加减乘除法做加法"></a>Question 65 不用加减乘除法做加法</h1><h1 id="Question-66-构建乘积数组"><a href="#Question-66-构建乘积数组" class="headerlink" title="Question 66 构建乘积数组"></a>Question 66 构建乘积数组</h1><h1 id="Question-67-把字符串转换成整数"><a href="#Question-67-把字符串转换成整数" class="headerlink" title="Question 67 把字符串转换成整数"></a>Question 67 把字符串转换成整数</h1><h1 id="Question-68-树中两个节点的最低公共祖先"><a href="#Question-68-树中两个节点的最低公共祖先" class="headerlink" title="Question 68 树中两个节点的最低公共祖先"></a>Question 68 树中两个节点的最低公共祖先</h1>
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
