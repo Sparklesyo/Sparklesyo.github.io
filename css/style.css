@@ -509,7 +509,7 @@
 .nav-left {
   width: 120px;
   height: 100%;
-  background: #2a2935;
+  background: #2962ff;
   box-shadow: inset -15px 0 15px -15px #222;
   float: left;
   position: relative;
@@ -550,7 +550,7 @@
   line-height: 19px;
 }
 .nav-left .icon a:hover {
-  color: #309e85;
+  color: #00b0ff;
 }
 .nav-left ul {
   margin: 0;
